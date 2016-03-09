@@ -1,0 +1,11 @@
+Image
+
+button of sake in main screen "button_sake_**.png", where ** is number like 01, 09, 10, 47
+
+map of Japan in map screen “map_japan.jpg”
+
+button for changing view between map and grid “change_to_map.png” or “change_to_grid.png”
+
+icon for the app “icon.png”
+
+button to go back to main view from detailed view "back_to_grid.png"
