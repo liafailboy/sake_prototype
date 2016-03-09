@@ -20,6 +20,11 @@
 
 #define navigationBarY 65
 
+#define topLatitude 48.432315
+#define bottomLatitude 24.651284
+#define rightLongitude 137.627837
+#define leftLongitude 134.991118
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -113,7 +118,11 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:38.894686
                                                             longitude:137.583892
                                                                  zoom:5];
+    
     mapView_ = [GMSMapView mapWithFrame:CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY) camera:camera];
+    
+    [mapView_ setMinZoom:5 maxZoom:12];
+    
     mapView_.myLocationEnabled = YES;
     mapView_.delegate = self;
     [bottomScrollView addSubview:mapView_];
@@ -138,6 +147,59 @@
         marker.userData = [NSString stringWithFormat:@"%d", i];
         marker.map = mapView_;
     }
+}
+
+- (void)mapView:(GMSMapView *)mapView didChangeCameraPosition:(GMSCameraPosition *)position {
+    
+    GMSVisibleRegion visibleRegion = mapView.projection.visibleRegion;
+    GMSCoordinateBounds *bounds = [[GMSCoordinateBounds alloc] initWithRegion:visibleRegion];
+    
+    CLLocationCoordinate2D northEast = bounds.northEast;
+    CLLocationCoordinate2D southWest = bounds.southWest;
+    
+    NSLog(@"%f, %f", northEast.latitude, southWest.latitude);
+    
+    NSLog(@"%f, %f", northEast.longitude, southWest.longitude);
+    
+//    if (northEast.latitude > topLatitude) {
+//        GMSCameraPosition *goBackCamera = [GMSCameraPosition
+//                                           cameraWithLatitude:(northEast.latitude + southWest.latitude) / 2
+//                                           longitude:position.target.longitude
+//                                           zoom:position.zoom
+//                                           bearing:0
+//                                           viewingAngle:0];
+//        
+//        [mapView_ animateToCameraPosition:goBackCamera];
+//    }
+//    
+//    if (southWest.latitude < bottomLatitude) {
+//        GMSCameraPosition *goBackCamera = [GMSCameraPosition
+//                                           cameraWithLatitude:(northEast.latitude + southWest.latitude) / 2
+//                                           longitude:position.target.longitude
+//                                           zoom:position.zoom
+//                                           bearing:0
+//                                           viewingAngle:0];
+//        
+//        [mapView_ animateToCameraPosition:goBackCamera];
+//    }
+    
+//    if (position.target.longitude > rightLongitude) {
+//        GMSCameraPosition *goBackCamera = [GMSCameraPosition cameraWithLatitude:position.target.latitude
+//                                                                      longitude:rightLongitude
+//                                                                           zoom:position.zoom
+//                                                                        bearing:0
+//                                                                   viewingAngle:0];
+//        [mapView_ animateToCameraPosition:goBackCamera];
+//    }
+//    
+//    if (position.target.longitude < leftLongitude) {
+//        GMSCameraPosition *goBackCamera = [GMSCameraPosition cameraWithLatitude:position.target.latitude
+//                                                                      longitude:leftLongitude
+//                                                                           zoom:position.zoom
+//                                                                        bearing:0
+//                                                                   viewingAngle:0];
+//        [mapView_ animateToCameraPosition:goBackCamera];
+//    }
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {

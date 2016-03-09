@@ -130,6 +130,7 @@
     // add imageView if it is already exist
     int sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
+    // add images if sake is drunk. Else, leave it brunk.
     if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
         
         // add detail of sake in first page of the view
