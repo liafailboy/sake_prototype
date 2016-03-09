@@ -53,7 +53,7 @@
     UIView *navigationBar = [[UIView alloc]  initWithFrame:CGRectMake(0, 20, 375, 45)];
     
     // set the background color of navigation bar to light gray
-    navigationBar.backgroundColor = [UIColor lightGrayColor];
+    navigationBar.backgroundColor = [UIColor colorWithRed:0.125 green:0.125 blue:0.125 alpha:1];
     
     // add navigation bar into main screen
     [self.view addSubview:navigationBar];
@@ -112,6 +112,9 @@
     
     // set the scrollView to page based
     scrollView.pagingEnabled = YES;
+    
+    // disable bounce
+    scrollView.bounces = NO;
     
     [self addInformationOnScrollView];
     
@@ -185,9 +188,21 @@
     int sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
     if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
-        imageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
-        [scrollView addSubview:imageView];
+        
+        // add detail of sake in first page of the view
+        UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
+        detailSakeImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+        [scrollView addSubview:detailSakeImageView];
+        
+        // add picture in second page of the view
+        UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
+        detailPictureImageView.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, 135);
+        [scrollView addSubview:detailPictureImageView];
+        
+        // add label in second page of the view
+        UIImageView *detailLabelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_label_%d", sakeID] stringByAppendingString:@".png"]]];
+        detailLabelImageView.frame = CGRectMake(self.view.bounds.size.width, 135, self.view.bounds.size.width, 467);
+        [scrollView addSubview:detailLabelImageView];
     }
 }
 

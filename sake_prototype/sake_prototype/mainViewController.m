@@ -176,7 +176,7 @@
     UIView *navigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 375, 45)];
     
     // set the background color of navigation bar to light gray
-    navigationBar.backgroundColor = [UIColor lightGrayColor];
+    navigationBar.backgroundColor = [UIColor colorWithRed:0.125 green:0.125 blue:0.125 alpha:1];
     
     // add navigation bar into main screen
     [self.view addSubview:navigationBar];
