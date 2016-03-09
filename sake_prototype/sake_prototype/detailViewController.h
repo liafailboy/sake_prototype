@@ -15,6 +15,7 @@
     UIScrollView *scrollView;
     
     NSMutableArray *arrayOfSakeDictionary;
+    NSMutableArray *arrayOfDrunkSakeID;
 
     NSUserDefaults *defaults;
     

@@ -23,6 +23,7 @@
     // get the store data of sake
     defaults = [NSUserDefaults standardUserDefaults];
     arrayOfSakeDictionary = [defaults mutableArrayValueForKey:@"arrayOfSakeDictionary"];
+    arrayOfDrunkSakeID = [defaults objectForKey:@"drunkSakeID"];
     
     // get the sakeID from previous view
     [self getSakeID];
@@ -120,6 +121,9 @@
 
 - (void)addInformationOnScrollView {
     
+    // get the sake date from shared array from previous view
+    NSDictionary *sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
+    
     // initialize labels for sake information
     UILabel *labelOfSakeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
     UILabel *labelOfSakePre = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
@@ -160,8 +164,6 @@
     labelOfSakeAci.adjustsFontSizeToFitWidth = YES;
     labelOfSakeMeter.adjustsFontSizeToFitWidth = YES;
     
-    // get the sake date from shared array from previous view
-    NSDictionary *sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
 
     // set the text to label from sake dictionary
     labelOfSakeName.text = [sakeDictionary objectForKey:@"NAME"];
@@ -178,6 +180,15 @@
     [scrollView addSubview:labelOfSakeCom];
     [scrollView addSubview:labelOfSakeAci];
     [scrollView addSubview:labelOfSakeMeter];
+    
+    // add imageView if it is already exist
+    int sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
+    
+    if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
+        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
+        imageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+        [scrollView addSubview:imageView];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

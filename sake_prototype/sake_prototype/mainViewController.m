@@ -164,7 +164,7 @@
 - (void)setUpNavigationBar {
     
     // initialize navigation bar on the main screen
-    UIView *statusBar = [[UIView alloc]  initWithFrame:CGRectMake(0, 0, 375, 20)];
+    UIView *statusBar = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 375, 20)];
     
     // set the background color of navigation bar to light gray
     statusBar.backgroundColor = [UIColor whiteColor];
@@ -173,7 +173,7 @@
     [self.view addSubview:statusBar];
     
     // initialize navigation bar on the main screen
-    UIView *navigationBar = [[UIView alloc]  initWithFrame:CGRectMake(0, 20, 375, 45)];
+    UIView *navigationBar = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 375, 45)];
     
     // set the background color of navigation bar to light gray
     navigationBar.backgroundColor = [UIColor lightGrayColor];
