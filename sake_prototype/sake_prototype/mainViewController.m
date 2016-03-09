@@ -52,12 +52,14 @@
         [arrayOfSakeDictionary addObject:sakeDictionary];
     }
     
+    // put the data of JSON file in to NSUserDefaults
     defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:arrayOfSakeDictionary forKey:@"arrayOfSakeDictionary"];
 }
 
 - (void)setUpUI {
     
+    // initialize page based view horizontally
     [self setUpBottomScrollView];
     
     // initialize new scrollview to enable scrolling buttons
@@ -120,10 +122,13 @@
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    // called when user tapped marker on the map
     [self viewChangeToDetailWithID:[marker.userData intValue]];
 }
 
 - (void)setUpBottomScrollView {
+    
+    // initialize scroll view for horizontal move
     bottomScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, navigationBarY, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY)];
     
     bottomScrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, self.view.bounds.size.height - navigationBarY);
@@ -131,6 +136,10 @@
     bottomScrollView.pagingEnabled = YES;
     
     bottomScrollView.delegate = self;
+    
+    bottomScrollView.bounces = NO;
+    
+    bottomScrollView.showsHorizontalScrollIndicator = NO;
     
     [self.view addSubview:bottomScrollView];
 }
@@ -162,7 +171,7 @@
     UIImage *buttonImage = [UIImage imageNamed:@"change_to_map.png"];
     
     // initialize button
-    UIButton *buttonForViewChange = [UIButton buttonWithType:UIButtonTypeCustom];
+    buttonForViewChange = [UIButton buttonWithType:UIButtonTypeCustom];
     
     // set the location and the size of the button
     [buttonForViewChange setFrame:CGRectMake(328, 27, 30, 30)];
@@ -237,6 +246,7 @@
 
 - (void)viewChangeToDetailWithID:(int)sakeID {
     
+    // load the data of sake
     [defaults setInteger:sakeID forKey:@"sakeID"];
     
     UIViewController *dVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"detailViewController"];
@@ -248,6 +258,7 @@
     transition.type = kCATransitionFade;
     transition.subtype = kCATransitionFromTop;
     
+    // start transition
     [self.view.window.layer addAnimation:transition forKey:nil];
     [self presentViewController:dVC animated:NO completion:nil];
 }
@@ -271,6 +282,7 @@
 }
 
 - (void)viewChangeButtonPushed:(UIButton*) button {
+    // change button picutre to map if it is on grid, else to grid
     if (currentPage == 0) {
         currentPage = 1;
         [button setBackgroundImage:nil forState:UIControlStateNormal];
@@ -302,11 +314,19 @@
     //[self.navigationController popToViewController:mVC animated:YES];
 }
 
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)sv {
+    
+    // get the current page of scroll view if user scroll the view instead of touching botton
+    float fractionalPage = sv.contentOffset.x / sv.frame.size.width;
+    currentPage = (int) lround(fractionalPage);
+    
+    // set the picture of button according to the current page
     if (currentPage == 0) {
-        currentPage = 1;
+        [buttonForViewChange setBackgroundImage:nil forState:UIControlStateNormal];
+        [buttonForViewChange setImage:[UIImage imageNamed:@"change_to_map.png"] forState:UIControlStateNormal];
     } else {
-        currentPage = 0;
+        [buttonForViewChange setBackgroundImage:nil forState:UIControlStateNormal];
+        [buttonForViewChange setImage:[UIImage imageNamed:@"change_to_grid.png"] forState:UIControlStateNormal];
     }
 }
 

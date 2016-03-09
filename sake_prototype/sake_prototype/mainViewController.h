@@ -13,8 +13,9 @@
 @interface mainViewController : UIViewController <UIScrollViewDelegate, GMSMapViewDelegate> {
     
     UIScrollView *bottomScrollView;
-    
     UIScrollView *scrollView;
+    
+    UIButton *buttonForViewChange;
     
     int buttonX;
     int buttonY;
