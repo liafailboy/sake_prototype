@@ -152,12 +152,12 @@
     labelOfSakeMeter.textAlignment = NSTextAlignmentCenter;
     
     // adjust the font size to the width of the label
-    [labelOfSakeName setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
-    [labelOfSakePre setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
-    [labelOfSakeCity setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
-    [labelOfSakeCom setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
-    [labelOfSakeAci setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
-    [labelOfSakeMeter setFont:[UIFont fontWithName:@"Helvetica" size:48.0]];
+    [labelOfSakeName setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+    [labelOfSakePre setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+    [labelOfSakeCity setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+    [labelOfSakeCom setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+    [labelOfSakeAci setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+    [labelOfSakeMeter setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
     
     // adjust the font size if it does not fit the width
     labelOfSakeName.adjustsFontSizeToFitWidth = YES;

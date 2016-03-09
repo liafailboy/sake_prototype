@@ -41,9 +41,9 @@
     
     // get the data from NSUserDefaults if there is pre-exsting data
     if ([[[defaults dictionaryRepresentation] allKeys] containsObject:@"drunkSakeID"]) {
-        NSLog(@"there were pre-existing data");
+        NSLog(@"was pre-existing data");
         arrayOfDrunkSakeID = [defaults objectForKey:@"drunkSakeID"];
-        NSLog(@"there were pre-existing data loaded");
+        NSLog(@"pre-existing data loaded");
     } else {
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
         
