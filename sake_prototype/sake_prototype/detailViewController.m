@@ -222,6 +222,11 @@
         [scrollView addSubview:labelOfSakeAci];
         [scrollView addSubview:labelOfSakeMeter];
     }
+    
+    UIImageView *graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
+    graphImage.frame = CGRectMake(0, 0, 375, 249);
+    graphImage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
+    [scrollView addSubview:graphImage];
 }
 
 - (void)didReceiveMemoryWarning {
