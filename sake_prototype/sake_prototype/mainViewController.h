@@ -24,6 +24,7 @@
     NSDictionary *sakeDictionary;
         
     NSMutableArray *arrayOfSakeDictionary;
+    NSMutableArray *arrayOfDrunkSakeID;
     
     NSUserDefaults *defaults;
 }

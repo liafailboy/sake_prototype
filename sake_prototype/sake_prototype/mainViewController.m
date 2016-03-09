@@ -33,6 +33,24 @@
     // initialize mutable array for sake dictionary
     arrayOfSakeDictionary = [NSMutableArray array];
     
+    // initialize mutable array for drunk sake
+    arrayOfDrunkSakeID = [NSMutableArray array];
+    
+    // initialize NSUserDefaults
+    defaults = [NSUserDefaults standardUserDefaults];
+    
+    // get the data from NSUserDefaults if there is pre-exsting data
+//    if ([[[defaults dictionaryRepresentation] allKeys] containsObject:@"drunkSakeID"]) {
+//        arrayOfDrunkSakeID = [defaults objectForKey:@"drunkSakeID"];
+//    }
+    
+    //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
+    
+    [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:47]];
+    [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
+    
+    //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
+    
     // set the file path of sake list with JSON format
     NSString * filePath =[[NSBundle mainBundle] pathForResource:@"sake_list" ofType:@"json"];
     
@@ -53,7 +71,6 @@
     }
     
     // put the data of JSON file in to NSUserDefaults
-    defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:arrayOfSakeDictionary forKey:@"arrayOfSakeDictionary"];
 }
 
@@ -196,7 +213,16 @@
         // *************LATER ON CHANGE HERE***************
         // [NSString stringWithFormat:@"button_sake_%d", i] stringByAppendingString:@".png"]]
         // *************LATER ON CHANGE HERE***************
-        UIImage *buttonImage = [UIImage imageNamed:@"button_sake_01.png"];
+        
+        UIImage *buttonImage;
+        
+        if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:i]]) {
+            buttonImage = [UIImage imageNamed:[[NSString stringWithFormat:@"button_sake_%d", i] stringByAppendingString:@".png"]];
+
+        } else {
+            buttonImage = [UIImage imageNamed:@"button_sake_unknown.png"];
+
+        }
         
         UIButton *buttonForSake = [UIButton buttonWithType:UIButtonTypeCustom];
         
@@ -206,13 +232,13 @@
         // set the image of buttons
         [buttonForSake setBackgroundImage:buttonImage forState:UIControlStateNormal];
         
-        // set the title of buttons
-        [buttonForSake setTitle:[[arrayOfSakeDictionary objectAtIndex:i] objectForKey:@"NAME"]
-                       forState:UIControlStateNormal];
-        
-        // set the title color of buttons
-        [buttonForSake setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        
+//        // set the title of buttons
+//        [buttonForSake setTitle:[[arrayOfSakeDictionary objectAtIndex:i] objectForKey:@"NAME"]
+//                       forState:UIControlStateNormal];
+//        
+//        // set the title color of buttons
+//        [buttonForSake setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//        
         // set the tag number for each button
         buttonForSake.tag = i;
         
@@ -239,6 +265,9 @@
     
     // set the delegate of scrollview to self
     scrollView.delegate = self;
+    
+    // set the scrollview not to bounce
+    scrollView.bounces = NO;
     
     // add scrollView to main screen
     [bottomScrollView addSubview:scrollView];
