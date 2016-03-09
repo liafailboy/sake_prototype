@@ -40,16 +40,18 @@
     defaults = [NSUserDefaults standardUserDefaults];
     
     // get the data from NSUserDefaults if there is pre-exsting data
-//    if ([[[defaults dictionaryRepresentation] allKeys] containsObject:@"drunkSakeID"]) {
-//        arrayOfDrunkSakeID = [defaults objectForKey:@"drunkSakeID"];
-//    }
-    
-    //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
-    
-    [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:47]];
-    [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
-    
-    //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
+    if ([[[defaults dictionaryRepresentation] allKeys] containsObject:@"drunkSakeID"]) {
+        NSLog(@"there were pre-existing data");
+        arrayOfDrunkSakeID = [defaults objectForKey:@"drunkSakeID"];
+        NSLog(@"there were pre-existing data loaded");
+    } else {
+        //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
+        
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:47]];
+        [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
+        
+        //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
+    }
     
     // set the file path of sake list with JSON format
     NSString * filePath =[[NSBundle mainBundle] pathForResource:@"sake_list" ofType:@"json"];
