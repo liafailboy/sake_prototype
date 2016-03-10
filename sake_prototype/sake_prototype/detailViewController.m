@@ -227,12 +227,19 @@
     graphImage.frame = CGRectMake(0, 0, 375, 249);
     graphImage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
     [scrollView addSubview:graphImage];
+    
+    UIImageView *sakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
+    sakeImageView.frame = CGRectMake(0, 0, 30, 30);
+    sakeImageView.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
+    [scrollView addSubview:sakeImageView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
