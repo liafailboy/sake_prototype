@@ -151,16 +151,22 @@
         // add text explanation in second page of the view
         UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 30, 235, self.view.bounds.size.width - 60, self.view.bounds.size.height - navigationBarY - 235)];
         
+        // intitlize the label for the detail of sake with left alignment
         labelOfSakeDetail.textAlignment = NSTextAlignmentLeft;
         
         [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
         
+        // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
         labelOfSakeDetail.text = @"八海醸造（はっかいじょうぞう、英文名称:HAKKAISAN BREWERY CO.,LTD. ）は、新潟県南魚沼市長森に本社を置く企業。創業は1922年（大正11年）で、新潟の地酒を代表する銘柄『八海山』の酒蔵である。仕込水『雷電様の清水』など酒造りに最適の雪国魚沼の環境条件と「寒梅と八海山は兄弟蔵」と言われた酒造りの技で、淡麗辛口の酒質評価が高い食中酒。製造方針は、「大吟醸酒製造技術の全酒類製造への応用」。新潟県内では、朝日酒造（売上高81億）・菊水酒造（売上51億）に次ぐ業界3位である。清酒以外では、発酵食品企業として『米・麹・発酵』をコンセプトにしている。";
         
+        // initialize label of sake
         labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
+        
         labelOfSakeDetail.numberOfLines = 0;
+        
         [labelOfSakeDetail sizeToFit];
         
+        // add the detailed explanation label to the scroll view
         [scrollView addSubview:labelOfSakeDetail];
         
     } else {
@@ -223,14 +229,20 @@
         [scrollView addSubview:labelOfSakeMeter];
     }
     
+    // initialize the image of graph of acidity and sake meter
     UIImageView *graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
     graphImage.frame = CGRectMake(0, 0, 375, 249);
     graphImage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
+    
+    // add the graph to scrollview
     [scrollView addSubview:graphImage];
     
+    // initialize the image of pin with specific location in the graph
     UIImageView *sakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
     sakeImageView.frame = CGRectMake(0, 0, 30, 30);
     sakeImageView.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
+    
+    // add the pin to scrollview on top of the graph
     [scrollView addSubview:sakeImageView];
 }
 
