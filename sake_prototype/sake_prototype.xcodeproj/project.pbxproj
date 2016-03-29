@@ -21,6 +21,10 @@
 		E26E45C31C865175003BC713 /* sake_list.json in Resources */ = {isa = PBXBuildFile; fileRef = E26E45C21C865175003BC713 /* sake_list.json */; };
 		E29049DA1C8777560041D446 /* change_to_map.png in Resources */ = {isa = PBXBuildFile; fileRef = E29049D81C8777560041D446 /* change_to_map.png */; };
 		E29049DB1C8777560041D446 /* change_to_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E29049D91C8777560041D446 /* change_to_grid.png */; };
+		E29C4D281C9A16BE00F24988 /* button_sake_0.png in Resources */ = {isa = PBXBuildFile; fileRef = E29C4D241C9A16BE00F24988 /* button_sake_0.png */; };
+		E29C4D291C9A16BE00F24988 /* button_sake_3.png in Resources */ = {isa = PBXBuildFile; fileRef = E29C4D251C9A16BE00F24988 /* button_sake_3.png */; };
+		E29C4D2A1C9A16BE00F24988 /* button_sake_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E29C4D261C9A16BE00F24988 /* button_sake_2.png */; };
+		E29C4D2B1C9A16BE00F24988 /* button_sake_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E29C4D271C9A16BE00F24988 /* button_sake_1.png */; };
 		E29CCB621C90DE96001DDD09 /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = E29CCB611C90DE96001DDD09 /* graph.png */; };
 		E29CCB641C90F63B001DDD09 /* sake_pin.png in Resources */ = {isa = PBXBuildFile; fileRef = E29CCB631C90F63B001DDD09 /* sake_pin.png */; };
 		E2B4116B1C8FEDDC00EAACE9 /* button_sake_unknown.png in Resources */ = {isa = PBXBuildFile; fileRef = E2B4116A1C8FEDDC00EAACE9 /* button_sake_unknown.png */; };
@@ -76,6 +80,10 @@
 		E26E45C21C865175003BC713 /* sake_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sake_list.json; sourceTree = "<group>"; };
 		E29049D81C8777560041D446 /* change_to_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_to_map.png; sourceTree = "<group>"; };
 		E29049D91C8777560041D446 /* change_to_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_to_grid.png; sourceTree = "<group>"; };
+		E29C4D241C9A16BE00F24988 /* button_sake_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_0.png; sourceTree = "<group>"; };
+		E29C4D251C9A16BE00F24988 /* button_sake_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_3.png; sourceTree = "<group>"; };
+		E29C4D261C9A16BE00F24988 /* button_sake_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_2.png; sourceTree = "<group>"; };
+		E29C4D271C9A16BE00F24988 /* button_sake_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_1.png; sourceTree = "<group>"; };
 		E29CCB611C90DE96001DDD09 /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
 		E29CCB631C90F63B001DDD09 /* sake_pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sake_pin.png; sourceTree = "<group>"; };
 		E2B4116A1C8FEDDC00EAACE9 /* button_sake_unknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_unknown.png; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 				E29049D91C8777560041D446 /* change_to_grid.png */,
 				E2223B5F1C8799B20025EA7F /* back_to_grid.png */,
 				E2B4116A1C8FEDDC00EAACE9 /* button_sake_unknown.png */,
+				E29C4D241C9A16BE00F24988 /* button_sake_0.png */,
+				E29C4D271C9A16BE00F24988 /* button_sake_1.png */,
+				E29C4D261C9A16BE00F24988 /* button_sake_2.png */,
+				E29C4D251C9A16BE00F24988 /* button_sake_3.png */,
 				E2B4116C1C8FEDFB00EAACE9 /* button_sake_47.png */,
 				E2B4116E1C8FF18600EAACE9 /* detail_sake_47.png */,
 				E2B411701C8FF57400EAACE9 /* detail_picture_47.png */,
@@ -318,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2EF41D11C90BC7F00A49306 /* Hannari.otf in Resources */,
+				E29C4D291C9A16BE00F24988 /* button_sake_3.png in Resources */,
 				E2B4116D1C8FEDFB00EAACE9 /* button_sake_47.png in Resources */,
 				E26E45C31C865175003BC713 /* sake_list.json in Resources */,
 				E29049DA1C8777560041D446 /* change_to_map.png in Resources */,
@@ -327,9 +340,12 @@
 				E218CFD61C7D1547000F0B28 /* icon.png in Resources */,
 				E29049DB1C8777560041D446 /* change_to_grid.png in Resources */,
 				E29CCB641C90F63B001DDD09 /* sake_pin.png in Resources */,
+				E29C4D2B1C9A16BE00F24988 /* button_sake_1.png in Resources */,
+				E29C4D2A1C9A16BE00F24988 /* button_sake_2.png in Resources */,
 				E29CCB621C90DE96001DDD09 /* graph.png in Resources */,
 				E21792DA1C79002A0052D414 /* LaunchScreen.storyboard in Resources */,
 				E2B4116B1C8FEDDC00EAACE9 /* button_sake_unknown.png in Resources */,
+				E29C4D281C9A16BE00F24988 /* button_sake_0.png in Resources */,
 				E2223B601C8799B20025EA7F /* back_to_grid.png in Resources */,
 				E21792D71C79002A0052D414 /* Assets.xcassets in Resources */,
 				E21792D51C79002A0052D414 /* Main.storyboard in Resources */,

@@ -52,6 +52,10 @@
     } else {
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
         
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:0]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:1]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:2]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:3]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:47]];
         [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
         
