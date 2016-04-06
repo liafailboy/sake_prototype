@@ -52,11 +52,16 @@
     } else {
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
         
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:0]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:1]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:2]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:3]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:47]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:5]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:7]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:9]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:10]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:11]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:12]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:17]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:18]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:24]];
         [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
         
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
