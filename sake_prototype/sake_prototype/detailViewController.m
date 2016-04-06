@@ -157,7 +157,7 @@
         [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
         
         // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
-        labelOfSakeDetail.text = @"八海醸造（はっかいじょうぞう、英文名称:HAKKAISAN BREWERY CO.,LTD. ）は、新潟県南魚沼市長森に本社を置く企業。創業は1922年（大正11年）で、新潟の地酒を代表する銘柄『八海山』の酒蔵である。仕込水『雷電様の清水』など酒造りに最適の雪国魚沼の環境条件と「寒梅と八海山は兄弟蔵」と言われた酒造りの技で、淡麗辛口の酒質評価が高い食中酒。製造方針は、「大吟醸酒製造技術の全酒類製造への応用」。新潟県内では、朝日酒造（売上高81億）・菊水酒造（売上51億）に次ぐ業界3位である。清酒以外では、発酵食品企業として『米・麹・発酵』をコンセプトにしている。";
+        labelOfSakeDetail.text = @"八海山は新潟県南魚沼市長森に本社を置く八海醸造によって1922年から作られている。新潟県の地酒を代表する銘柄で、日本国内でかなり流通している日本酒の銘柄の一つでもある。仕込水『雷電様の清水』など酒造りに最適の雪国魚沼の環境条件と「寒梅と八海山は兄弟蔵」と言われた酒造りの技で、淡麗辛口の酒質評価が高い食中酒。「どうすればよい酒ができるのか」という醸造技術は、明治時代までにほぼ確立されている中、普段のお酒の品質を少しでも高め、日本酒のスタンダードを高めていくことをモットーに毎年毎年、限りない最高品質を目指している。";
         
         // initialize label of sake
         labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
