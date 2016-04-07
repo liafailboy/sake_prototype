@@ -130,13 +130,29 @@
     // add imageView if it is already exist
     int sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
-    // add images if sake is drunk. Else, leave it brunk.
+    // add images if sake is drunk. Else, leave it blank.
     if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
         
         // add detail of sake in first page of the view
         UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
         detailSakeImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
         [scrollView addSubview:detailSakeImageView];
+        
+        // add amazon and rakuten link to buy sake
+        UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
+        
+        amazon.frame = CGRectMake(15, 667 - navigationBarY - 45, 30, 30);
+        rakuten.frame = CGRectMake(55, 667 - navigationBarY - 45, 30, 30);
+        
+        [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
+        [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
+        
+        [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
+        [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [scrollView addSubview:amazon];
+        [scrollView addSubview:rakuten];
         
         // add picture in second page of the view
         UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
@@ -244,6 +260,14 @@
     
     // add the pin to scrollview on top of the graph
     [scrollView addSubview:sakeImageView];
+}
+
+-(void)amazonLink:(UIButton*) button{
+    NSLog(@"Go to safari with amazon link");
+}
+
+-(void)rakutenLink:(UIButton*) button{
+    NSLog(@"Go to safari with rakuten link");
 }
 
 - (void)didReceiveMemoryWarning {
