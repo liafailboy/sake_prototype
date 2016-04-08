@@ -68,7 +68,7 @@
     UIButton *buttonForViewChange = [UIButton buttonWithType:UIButtonTypeCustom];
     
     // set the location and the size of the button
-    [buttonForViewChange setFrame:CGRectMake(17, 27, 30, 30)];
+    [buttonForViewChange setFrame:CGRectMake(20, 30, 25, 25)];
     
     // set the image of buttons
     [buttonForViewChange setBackgroundImage:buttonImage forState:UIControlStateNormal];
@@ -262,12 +262,31 @@
     [scrollView addSubview:sakeImageView];
 }
 
--(void)amazonLink:(UIButton*) button{
+- (void)amazonLink:(UIButton*) button {
     NSLog(@"Go to safari with amazon link");
+    [self openUIWebViewWithURL:@"http://amzn.to/1ULPQRX"];
 }
 
--(void)rakutenLink:(UIButton*) button{
+- (void)rakutenLink:(UIButton*) button {
     NSLog(@"Go to safari with rakuten link");
+    [self openUIWebViewWithURL:@"http://bit.ly/1S0vXD5"];
+}
+
+- (void)openUIWebViewWithURL:(NSString*) urlString {
+    
+    [defaults setObject:urlString forKey:@"webURL"];
+    
+    UIViewController *wVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webViewController"];
+    
+    // initiazlize animation effect to push new view controller from right to left
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    
+    [self.view.window.layer addAnimation:transition forKey:nil];
+    [self presentViewController:wVC animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

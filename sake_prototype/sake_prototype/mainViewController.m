@@ -56,6 +56,7 @@
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:1]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:2]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:3]];
+        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:4]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:5]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:7]];
         [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:9]];
