@@ -16,6 +16,18 @@
 		E21792E51C79002A0052D414 /* sake_prototypeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E21792E41C79002A0052D414 /* sake_prototypeTests.m */; };
 		E21792F01C79002A0052D414 /* sake_prototypeUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E21792EF1C79002A0052D414 /* sake_prototypeUITests.m */; };
 		E218CFD61C7D1547000F0B28 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = E218CFD51C7D1547000F0B28 /* icon.png */; };
+		E21CE0151CB9988200494105 /* button_sake_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0141CB9988200494105 /* button_sake_6.png */; };
+		E21CE0171CB9989000494105 /* button_sake_8.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0161CB9989000494105 /* button_sake_8.png */; };
+		E21CE01C1CB998A100494105 /* button_sake_13.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0181CB998A100494105 /* button_sake_13.png */; };
+		E21CE01D1CB998A100494105 /* button_sake_14.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0191CB998A100494105 /* button_sake_14.png */; };
+		E21CE01E1CB998A100494105 /* button_sake_15.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE01A1CB998A100494105 /* button_sake_15.png */; };
+		E21CE01F1CB998A100494105 /* button_sake_16.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE01B1CB998A100494105 /* button_sake_16.png */; };
+		E21CE0211CB99A9900494105 /* detail_sake_8.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0201CB99A9900494105 /* detail_sake_8.png */; };
+		E21CE0261CB99A9F00494105 /* detail_sake_13.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0221CB99A9F00494105 /* detail_sake_13.png */; };
+		E21CE0271CB99A9F00494105 /* detail_sake_14.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0231CB99A9F00494105 /* detail_sake_14.png */; };
+		E21CE0281CB99A9F00494105 /* detail_sake_15.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0241CB99A9F00494105 /* detail_sake_15.png */; };
+		E21CE0291CB99A9F00494105 /* detail_sake_16.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE0251CB99A9F00494105 /* detail_sake_16.png */; };
+		E21CE02B1CB99AF300494105 /* detail_sake_6.png in Resources */ = {isa = PBXBuildFile; fileRef = E21CE02A1CB99AF300494105 /* detail_sake_6.png */; };
 		E2223B5E1C8795DE0025EA7F /* detailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2223B5D1C8795DE0025EA7F /* detailViewController.m */; };
 		E2223B601C8799B20025EA7F /* back_to_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E2223B5F1C8799B20025EA7F /* back_to_grid.png */; };
 		E24A2CA51CB726D800EA7017 /* button_sake_4.png in Resources */ = {isa = PBXBuildFile; fileRef = E24A2CA41CB726D800EA7017 /* button_sake_4.png */; };
@@ -109,6 +121,18 @@
 		E21792EF1C79002A0052D414 /* sake_prototypeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = sake_prototypeUITests.m; sourceTree = "<group>"; };
 		E21792F11C79002A0052D414 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E218CFD51C7D1547000F0B28 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		E21CE0141CB9988200494105 /* button_sake_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_6.png; sourceTree = "<group>"; };
+		E21CE0161CB9989000494105 /* button_sake_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_8.png; sourceTree = "<group>"; };
+		E21CE0181CB998A100494105 /* button_sake_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_13.png; sourceTree = "<group>"; };
+		E21CE0191CB998A100494105 /* button_sake_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_14.png; sourceTree = "<group>"; };
+		E21CE01A1CB998A100494105 /* button_sake_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_15.png; sourceTree = "<group>"; };
+		E21CE01B1CB998A100494105 /* button_sake_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = button_sake_16.png; sourceTree = "<group>"; };
+		E21CE0201CB99A9900494105 /* detail_sake_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_8.png; sourceTree = "<group>"; };
+		E21CE0221CB99A9F00494105 /* detail_sake_13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_13.png; sourceTree = "<group>"; };
+		E21CE0231CB99A9F00494105 /* detail_sake_14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_14.png; sourceTree = "<group>"; };
+		E21CE0241CB99A9F00494105 /* detail_sake_15.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_15.png; sourceTree = "<group>"; };
+		E21CE0251CB99A9F00494105 /* detail_sake_16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_16.png; sourceTree = "<group>"; };
+		E21CE02A1CB99AF300494105 /* detail_sake_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = detail_sake_6.png; sourceTree = "<group>"; };
 		E2223B5C1C8795DE0025EA7F /* detailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detailViewController.h; sourceTree = "<group>"; };
 		E2223B5D1C8795DE0025EA7F /* detailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detailViewController.m; sourceTree = "<group>"; };
 		E2223B5F1C8799B20025EA7F /* back_to_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_to_grid.png; sourceTree = "<group>"; };
@@ -236,11 +260,17 @@
 				E262D0A61CB68C9800152FE8 /* button_sake_3.png */,
 				E24A2CA41CB726D800EA7017 /* button_sake_4.png */,
 				E2C2DFB01CB4CEAA00E1AAE7 /* button_sake_5.png */,
+				E21CE0141CB9988200494105 /* button_sake_6.png */,
 				E2C2DFB11CB4CEAA00E1AAE7 /* button_sake_7.png */,
+				E21CE0161CB9989000494105 /* button_sake_8.png */,
 				E2C2DFB21CB4CEAA00E1AAE7 /* button_sake_9.png */,
 				E2C2DFB31CB4CEAA00E1AAE7 /* button_sake_10.png */,
 				E2C2DFB41CB4CEAA00E1AAE7 /* button_sake_11.png */,
 				E2C2DFB51CB4CEAA00E1AAE7 /* button_sake_12.png */,
+				E21CE0181CB998A100494105 /* button_sake_13.png */,
+				E21CE0191CB998A100494105 /* button_sake_14.png */,
+				E21CE01A1CB998A100494105 /* button_sake_15.png */,
+				E21CE01B1CB998A100494105 /* button_sake_16.png */,
 				E2C2DFB71CB4CEAA00E1AAE7 /* button_sake_17.png */,
 				E2C2DFB81CB4CEAA00E1AAE7 /* button_sake_18.png */,
 				E262D0A71CB68C9800152FE8 /* button_sake_19.png */,
@@ -258,11 +288,17 @@
 				E262D0B71CB68D8A00152FE8 /* detail_sake_3.png */,
 				E24A2CA61CB726DC00EA7017 /* detail_sake_4.png */,
 				E262D0B81CB68D8A00152FE8 /* detail_sake_5.png */,
+				E21CE02A1CB99AF300494105 /* detail_sake_6.png */,
 				E262D0B91CB68D8A00152FE8 /* detail_sake_7.png */,
+				E21CE0201CB99A9900494105 /* detail_sake_8.png */,
 				E262D0BA1CB68D8A00152FE8 /* detail_sake_9.png */,
 				E2C2DFCF1CB4D26600E1AAE7 /* detail_sake_10.png */,
 				E2C2DFD01CB4D26600E1AAE7 /* detail_sake_11.png */,
 				E2C2DFD11CB4D26600E1AAE7 /* detail_sake_12.png */,
+				E21CE0221CB99A9F00494105 /* detail_sake_13.png */,
+				E21CE0231CB99A9F00494105 /* detail_sake_14.png */,
+				E21CE0241CB99A9F00494105 /* detail_sake_15.png */,
+				E21CE0251CB99A9F00494105 /* detail_sake_16.png */,
 				E2C2DFD21CB4D26600E1AAE7 /* detail_sake_17.png */,
 				E2C2DFD31CB4D26600E1AAE7 /* detail_sake_18.png */,
 				E2C2DFD41CB4D26600E1AAE7 /* detail_sake_19.png */,
@@ -397,7 +433,7 @@
 				TargetAttributes = {
 					E21792C61C79002A0052D414 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 97R4645FRT;
+						DevelopmentTeam = LWTPZD37JB;
 					};
 					E21792DF1C79002A0052D414 = {
 						CreatedOnToolsVersion = 7.2;
@@ -436,9 +472,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21CE0281CB99A9F00494105 /* detail_sake_15.png in Resources */,
 				E262D0B11CB68C9800152FE8 /* button_sake_21.png in Resources */,
 				E262D0B31CB68C9800152FE8 /* button_sake_23.png in Resources */,
 				E2C2DFC21CB4CEAA00E1AAE7 /* button_sake_17.png in Resources */,
+				E21CE0291CB99A9F00494105 /* detail_sake_16.png in Resources */,
+				E21CE02B1CB99AF300494105 /* detail_sake_6.png in Resources */,
+				E21CE01C1CB998A100494105 /* button_sake_13.png in Resources */,
 				E2C5C81B1CB6F85100A94AA4 /* rakuten_logo.png in Resources */,
 				E2EF41D11C90BC7F00A49306 /* Hannari.otf in Resources */,
 				E262D0C11CB68D8A00152FE8 /* detail_sake_9.png in Resources */,
@@ -452,6 +492,7 @@
 				E2C2DFC31CB4CEAA00E1AAE7 /* button_sake_18.png in Resources */,
 				E2C2DFE51CB4D26600E1AAE7 /* detail_sake_22.png in Resources */,
 				E262D0C31CB68D9300152FE8 /* detail_sake_24.png in Resources */,
+				E21CE0211CB99A9900494105 /* detail_sake_8.png in Resources */,
 				E26E45C31C865175003BC713 /* sake_list.json in Resources */,
 				E262D0BF1CB68D8A00152FE8 /* detail_sake_5.png in Resources */,
 				E24A2CA51CB726D800EA7017 /* button_sake_4.png in Resources */,
@@ -462,19 +503,24 @@
 				E24A2CA71CB726DC00EA7017 /* detail_sake_4.png in Resources */,
 				E2C2DFBE1CB4CEAA00E1AAE7 /* button_sake_10.png in Resources */,
 				E262D0AC1CB68C9800152FE8 /* button_sake_0.png in Resources */,
+				E21CE0171CB9989000494105 /* button_sake_8.png in Resources */,
 				E2C5C81C1CB6F85100A94AA4 /* amazon_logo.png in Resources */,
 				E2C2DFC41CB4CEAA00E1AAE7 /* button_sake_unknown.png in Resources */,
+				E21CE01F1CB998A100494105 /* button_sake_16.png in Resources */,
 				E2C2DFC11CB4CEAA00E1AAE7 /* button_sake_24.png in Resources */,
 				E262D0B01CB68C9800152FE8 /* button_sake_20.png in Resources */,
 				E262D0BE1CB68D8A00152FE8 /* detail_sake_3.png in Resources */,
 				E262D0C01CB68D8A00152FE8 /* detail_sake_7.png in Resources */,
 				E2C2DFBB1CB4CEAA00E1AAE7 /* button_sake_5.png in Resources */,
 				E262D0AD1CB68C9800152FE8 /* button_sake_2.png in Resources */,
+				E21CE01D1CB998A100494105 /* button_sake_14.png in Resources */,
 				E218CFD61C7D1547000F0B28 /* icon.png in Resources */,
 				E2C2DFE21CB4D26600E1AAE7 /* detail_sake_19.png in Resources */,
+				E21CE0271CB99A9F00494105 /* detail_sake_14.png in Resources */,
 				E262D0BD1CB68D8A00152FE8 /* detail_sake_2.png in Resources */,
 				E262D0B21CB68C9800152FE8 /* button_sake_22.png in Resources */,
 				E262D0AE1CB68C9800152FE8 /* button_sake_3.png in Resources */,
+				E21CE0261CB99A9F00494105 /* detail_sake_13.png in Resources */,
 				E2C2DFBC1CB4CEAA00E1AAE7 /* button_sake_7.png in Resources */,
 				E29049DB1C8777560041D446 /* change_to_grid.png in Resources */,
 				E29CCB641C90F63B001DDD09 /* sake_pin.png in Resources */,
@@ -484,9 +530,11 @@
 				E2C2DFE41CB4D26600E1AAE7 /* detail_sake_21.png in Resources */,
 				E2C2DFDE1CB4D26600E1AAE7 /* detail_sake_11.png in Resources */,
 				E262D0BB1CB68D8A00152FE8 /* detail_sake_0.png in Resources */,
+				E21CE01E1CB998A100494105 /* button_sake_15.png in Resources */,
 				E2C2DFC91CB4D0DB00E1AAE7 /* detail_picture_24.png in Resources */,
 				E2223B601C8799B20025EA7F /* back_to_grid.png in Resources */,
 				E21792D71C79002A0052D414 /* Assets.xcassets in Resources */,
+				E21CE0151CB9988200494105 /* button_sake_6.png in Resources */,
 				E2C2DFDF1CB4D26600E1AAE7 /* detail_sake_12.png in Resources */,
 				E2C2DFC01CB4CEAA00E1AAE7 /* button_sake_12.png in Resources */,
 				E21792D51C79002A0052D414 /* Main.storyboard in Resources */,
@@ -706,10 +754,14 @@
 			baseConfigurationReference = 523011C7D94B66F70E231F89 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sake_prototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liafailboy.sake-prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -718,10 +770,14 @@
 			baseConfigurationReference = DDD512236C8790849EE9DD15 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = sake_prototype/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.liafailboy.sake-prototype";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -52,25 +52,9 @@
     } else {
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
         
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:0]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:1]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:2]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:3]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:4]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:5]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:7]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:9]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:10]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:11]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:12]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:17]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:18]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:19]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:20]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:21]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:22]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:23]];
-        [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:24]];
+        for (int i = 0; i < 25; i++) {
+            [arrayOfDrunkSakeID addObject:[NSNumber numberWithInt:i]];
+        }
         [defaults setObject:arrayOfDrunkSakeID forKey:@"drunkSakeID"];
         
         //*******************************CHANGE THIS PART FOR STAMP FUNCTION*********************************
