@@ -11,6 +11,7 @@
 
 @interface detailViewController : UIViewController <UIScrollViewDelegate> {
     int sakeIDNumber;
+    int sakeID;
     
     UIScrollView *scrollView;
     
@@ -20,6 +21,7 @@
     NSUserDefaults *defaults;
     
     CGSize contentSize;
+    
 }
 
 @end

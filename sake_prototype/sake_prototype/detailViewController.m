@@ -38,6 +38,159 @@
     [self setUpScrollView];
 }
 
+- (void)animateDesign {
+
+    // start animation
+    [self animateBackDesign];
+    
+    //[self animateTileDesign];
+    NSTimer *timerForTile = [NSTimer scheduledTimerWithTimeInterval:0.2f
+                                                      target:self
+                                                    selector:@selector(animateTileDesign)
+                                                    userInfo:nil
+                                                     repeats:nil];
+    //[self animateSakeDesign];
+    NSTimer *timerForSake = [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                                             target:self
+                                                           selector:@selector(animateSakeDesign)
+                                                           userInfo:nil
+                                                            repeats:nil];
+    //[self animateTagDesign];
+    NSTimer *timerForTag = [NSTimer scheduledTimerWithTimeInterval:0.7f
+                                                             target:self
+                                                           selector:@selector(animateTagDesign)
+                                                           userInfo:nil
+                                                            repeats:nil];
+    
+    //[self animateStampDesign];
+    NSTimer *timerForStamp = [NSTimer scheduledTimerWithTimeInterval:1.0f
+                                                            target:self
+                                                          selector:@selector(animateStampDesign)
+                                                          userInfo:nil
+                                                           repeats:nil];
+}
+
+- (void)animateBackDesign {
+    // stay at the screen from the beginning
+    UIImageView *backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backTest.png"]];
+    backImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    [scrollView addSubview:backImage];
+}
+
+- (void)animateTileDesign {
+    // move from up and down into the screen
+    UIImageView *tileBotImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tileBotTest.png"]];
+    tileBotImage.frame = CGRectMake(0, 160, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    UIImageView *tileTopImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tileTopTest.png"]];
+    tileTopImage.frame = CGRectMake(0, -160, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    
+    [scrollView addSubview:tileBotImage];
+    [scrollView addSubview:tileTopImage];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    
+    tileBotImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    tileTopImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    
+    [UIView commitAnimations];
+}
+
+- (void)animateSakeDesign {
+    // fade in sake bottle
+    UIImageView *bottleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bottleTest.png"]];
+    bottleImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    
+    bottleImage.alpha = 0;
+    
+    [scrollView addSubview:bottleImage];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.5];
+    
+    bottleImage.alpha = 1;
+    
+    [UIView commitAnimations];
+}
+
+- (void)animateTagDesign {
+    // curl down to animate as if it is attached
+    // location x = 27, y = 32
+    UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tagTest.png"]];
+    tagImage.frame = CGRectMake(27, 32, 117, 302);
+    
+    tagImage.alpha = 0;
+    
+    [scrollView addSubview:tagImage];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.8];
+    
+    tagImage.alpha = 1;
+    
+    [UIView commitAnimations];
+}
+
+- (void)animateStampDesign {
+    
+    UIImageView *stampImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stampTest.png"]];
+    stampImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    
+    stampImage.alpha = 0;
+    
+    [scrollView addSubview:stampImage];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.8];
+    
+    stampImage.alpha = 1;
+    
+    [UIView commitAnimations];
+    
+    UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    amazon.frame = CGRectMake(27, 560, 32, 32);
+    rakuten.frame = CGRectMake(78, 560, 32, 32);
+    
+    [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
+    [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
+    
+    [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
+    [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
+    
+    amazon.alpha = 0;
+    rakuten.alpha = 0;
+    
+    [scrollView addSubview:amazon];
+    [scrollView addSubview:rakuten];
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.8];
+    
+    amazon.alpha = 1;
+    rakuten.alpha = 1;
+    
+    [UIView commitAnimations];
+}
+
+
+- (void)testAnimation {
+    UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", 0] stringByAppendingString:@".png"]]];
+    
+    detailSakeImageView.frame = self.view.bounds;
+    
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:1.0];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
+    
+    [self.view addSubview:detailSakeImageView];
+    
+    [UIView commitAnimations];
+}
+
 - (void)setUpNavigationBar {
     
     // initialize navigation bar on the main screen
@@ -128,10 +281,12 @@
     NSDictionary *sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
     
     // add imageView if it is already exist
-    int sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
+    sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
     // add images if sake is drunk. Else, leave it blank.
-    if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
+    if (sakeID == 0) {
+        [self animateDesign];
+    } else if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
         
         // add detail of sake in first page of the view
         UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
@@ -139,110 +294,91 @@
         [scrollView addSubview:detailSakeImageView];
         
         // add amazon and rakuten link to buy sake
-        UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
-        
-        amazon.frame = CGRectMake(15, 667 - navigationBarY - 45, 30, 30);
-        rakuten.frame = CGRectMake(55, 667 - navigationBarY - 45, 30, 30);
-        
-        [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
-        [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
-        
-        [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
-        [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
-        
-        [scrollView addSubview:amazon];
-        [scrollView addSubview:rakuten];
+        [self addAmazonRakutenButton];
         
         // add picture in second page of the view
-        UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
-        detailPictureImageView.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, 135);
-        [scrollView addSubview:detailPictureImageView];
-        
-        // add sake label in second page of the view
-        UIImageView *detailLabelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_label_%d", sakeID] stringByAppendingString:@".png"]]];
-        detailLabelImageView.frame = CGRectMake(self.view.bounds.size.width, 135, self.view.bounds.size.width, 467);
-        [scrollView addSubview:detailLabelImageView];
-        
-        // add text explanation in second page of the view
-        UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 30, 235, self.view.bounds.size.width - 60, self.view.bounds.size.height - navigationBarY - 235)];
-        
-        // intitlize the label for the detail of sake with left alignment
-        labelOfSakeDetail.textAlignment = NSTextAlignmentLeft;
-        
-        [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
-        
-        // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
-        labelOfSakeDetail.text = @"五人娘は千葉県香取郡神崎町に本社を置く寺田本家によって作られている。千葉県の地酒を代表する銘柄である。寺田本家の仕込水は蔵内の井戸からくみ上げたもので、最先端のテクノロジーにより分子集団の小さな水にしてから使用しており、微生物たちの生命力を高めることに成功している。2010年の仕込みからは契約農家の協力により全量無農薬米を使用することを初めた。江戸時代の伝統的な仕込方法である生もと造りは、近代的な速醸もとに比べて細かい温度管理に手間暇がかかり、杜氏の技術が要求されるが、今でも寺田本家はこの手法を続けている。";
-        
-        // initialize label of sake
-        labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
-        
-        labelOfSakeDetail.numberOfLines = 0;
-        
-        [labelOfSakeDetail sizeToFit];
-        
-        // add the detailed explanation label to the scroll view
-        [scrollView addSubview:labelOfSakeDetail];
+        [self setSecondPageOfScrollView];
         
     } else {
+        // add detail of sake in first page of the view
+        UIImageView *detailSakeUnknownImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detail_sake_unknown.png"]];
+        detailSakeUnknownImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+        [scrollView addSubview:detailSakeUnknownImageView];
         
-        // initialize labels for sake information
-        UILabel *labelOfSakeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-        UILabel *labelOfSakePre = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-        UILabel *labelOfSakeCity = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-        UILabel *labelOfSakeCom = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-        UILabel *labelOfSakeAci = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-        UILabel *labelOfSakeMeter = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+        // button to release
+        UIButton *release = [UIButton buttonWithType:UIButtonTypeCustom];
         
-        // set the location of each label
-        labelOfSakeName.center = CGPointMake(contentSize.width / 6, contentSize.height / 2);
-        labelOfSakePre.center = CGPointMake(contentSize.width / 2 , contentSize.height / 2 - 50);
-        labelOfSakeCity.center = CGPointMake(contentSize.width / 2, contentSize.height / 2);
-        labelOfSakeCom.center = CGPointMake(contentSize.width / 2, contentSize.height / 2 + 50);
-        labelOfSakeAci.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 - 25);
-        labelOfSakeMeter.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 + 25);
+        release.frame = CGRectMake(277, 508, 84, 85);
         
-        // set the alignment of labels to center
-        labelOfSakeName.textAlignment = NSTextAlignmentCenter;
-        labelOfSakePre.textAlignment = NSTextAlignmentCenter;
-        labelOfSakeCity.textAlignment = NSTextAlignmentCenter;
-        labelOfSakeCom.textAlignment = NSTextAlignmentCenter;
-        labelOfSakeAci.textAlignment = NSTextAlignmentCenter;
-        labelOfSakeMeter.textAlignment = NSTextAlignmentCenter;
+        [release setImage:[UIImage imageNamed:@"release_button.png"] forState:UIControlStateNormal];
         
-        // adjust the font size to the width of the label
-        [labelOfSakeName setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-        [labelOfSakePre setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-        [labelOfSakeCity setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-        [labelOfSakeCom setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-        [labelOfSakeAci setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-        [labelOfSakeMeter setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+        [release addTarget:self action:@selector(release:) forControlEvents:UIControlEventTouchUpInside];
         
-        // adjust the font size if it does not fit the width
-        labelOfSakeName.adjustsFontSizeToFitWidth = YES;
-        labelOfSakePre.adjustsFontSizeToFitWidth = YES;
-        labelOfSakeCity.adjustsFontSizeToFitWidth = YES;
-        labelOfSakeCom.adjustsFontSizeToFitWidth = YES;
-        labelOfSakeAci.adjustsFontSizeToFitWidth = YES;
-        labelOfSakeMeter.adjustsFontSizeToFitWidth = YES;
+        [scrollView addSubview:release];
+        
+        // add amazon and rakuten link to buy sake
+        [self addAmazonRakutenButton];
+        
+        // add picture in second page of the view
+        [self setSecondPageOfScrollView];
         
         
-        // set the text to label from sake dictionary
-        labelOfSakeName.text = [sakeDictionary objectForKey:@"NAME"];
-        labelOfSakePre.text = [NSString stringWithFormat:@"都道府県: %@",[sakeDictionary objectForKey:@"PREFECTURE"]];
-        labelOfSakeCity.text = [NSString stringWithFormat:@"都市: %@",[sakeDictionary objectForKey:@"CITY"]];
-        labelOfSakeCom.text = [NSString stringWithFormat:@"醸造元: %@",[sakeDictionary objectForKey:@"COMPANY"]];
-        labelOfSakeAci.text = [NSString stringWithFormat:@"酸度: %@", [sakeDictionary objectForKey:@"ACIDITY"]];
-        labelOfSakeMeter.text = [NSString stringWithFormat:@"日本酒度: %@", [sakeDictionary objectForKey:@"SAKE_METER"]];
-        
-        // add labels to the view
-        [scrollView addSubview:labelOfSakeName];
-        [scrollView addSubview:labelOfSakePre];
-        [scrollView addSubview:labelOfSakeCity];
-        [scrollView addSubview:labelOfSakeCom];
-        [scrollView addSubview:labelOfSakeAci];
-        [scrollView addSubview:labelOfSakeMeter];
+//        // initialize labels for sake information
+//        UILabel *labelOfSakeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        UILabel *labelOfSakePre = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        UILabel *labelOfSakeCity = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        UILabel *labelOfSakeCom = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        UILabel *labelOfSakeAci = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        UILabel *labelOfSakeMeter = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
+//        
+//        // set the location of each label
+//        labelOfSakeName.center = CGPointMake(contentSize.width / 6, contentSize.height / 2);
+//        labelOfSakePre.center = CGPointMake(contentSize.width / 2 , contentSize.height / 2 - 50);
+//        labelOfSakeCity.center = CGPointMake(contentSize.width / 2, contentSize.height / 2);
+//        labelOfSakeCom.center = CGPointMake(contentSize.width / 2, contentSize.height / 2 + 50);
+//        labelOfSakeAci.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 - 25);
+//        labelOfSakeMeter.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 + 25);
+//        
+//        // set the alignment of labels to center
+//        labelOfSakeName.textAlignment = NSTextAlignmentCenter;
+//        labelOfSakePre.textAlignment = NSTextAlignmentCenter;
+//        labelOfSakeCity.textAlignment = NSTextAlignmentCenter;
+//        labelOfSakeCom.textAlignment = NSTextAlignmentCenter;
+//        labelOfSakeAci.textAlignment = NSTextAlignmentCenter;
+//        labelOfSakeMeter.textAlignment = NSTextAlignmentCenter;
+//        
+//        // adjust the font size to the width of the label
+//        [labelOfSakeName setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        [labelOfSakePre setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        [labelOfSakeCity setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        [labelOfSakeCom setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        [labelOfSakeAci setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        [labelOfSakeMeter setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
+//        
+//        // adjust the font size if it does not fit the width
+//        labelOfSakeName.adjustsFontSizeToFitWidth = YES;
+//        labelOfSakePre.adjustsFontSizeToFitWidth = YES;
+//        labelOfSakeCity.adjustsFontSizeToFitWidth = YES;
+//        labelOfSakeCom.adjustsFontSizeToFitWidth = YES;
+//        labelOfSakeAci.adjustsFontSizeToFitWidth = YES;
+//        labelOfSakeMeter.adjustsFontSizeToFitWidth = YES;
+//        
+//        
+//        // set the text to label from sake dictionary
+//        labelOfSakeName.text = [sakeDictionary objectForKey:@"NAME"];
+//        labelOfSakePre.text = [NSString stringWithFormat:@"都道府県: %@",[sakeDictionary objectForKey:@"PREFECTURE"]];
+//        labelOfSakeCity.text = [NSString stringWithFormat:@"都市: %@",[sakeDictionary objectForKey:@"CITY"]];
+//        labelOfSakeCom.text = [NSString stringWithFormat:@"醸造元: %@",[sakeDictionary objectForKey:@"COMPANY"]];
+//        labelOfSakeAci.text = [NSString stringWithFormat:@"酸度: %@", [sakeDictionary objectForKey:@"ACIDITY"]];
+//        labelOfSakeMeter.text = [NSString stringWithFormat:@"日本酒度: %@", [sakeDictionary objectForKey:@"SAKE_METER"]];
+//        
+//        // add labels to the view
+//        [scrollView addSubview:labelOfSakeName];
+//        [scrollView addSubview:labelOfSakePre];
+//        [scrollView addSubview:labelOfSakeCity];
+//        [scrollView addSubview:labelOfSakeCom];
+//        [scrollView addSubview:labelOfSakeAci];
+//        [scrollView addSubview:labelOfSakeMeter];
     }
     
     // initialize the image of graph of acidity and sake meter
@@ -262,6 +398,56 @@
     [scrollView addSubview:sakeImageView];
 }
 
+- (void)addAmazonRakutenButton {
+    // add amazon and rakuten link to buy sake
+    UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    amazon.frame = CGRectMake(27, 560, 32, 32);
+    rakuten.frame = CGRectMake(78, 560, 32, 32);
+    
+    [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
+    [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
+    
+    [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
+    [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [scrollView addSubview:amazon];
+    [scrollView addSubview:rakuten];
+}
+
+- (void)setSecondPageOfScrollView {
+    UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
+    detailPictureImageView.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, 135);
+    [scrollView addSubview:detailPictureImageView];
+    
+    // add sake label in second page of the view
+    UIImageView *detailLabelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_label_%d", sakeID] stringByAppendingString:@".png"]]];
+    detailLabelImageView.frame = CGRectMake(self.view.bounds.size.width, 135, self.view.bounds.size.width, 467);
+    [scrollView addSubview:detailLabelImageView];
+    
+    // add text explanation in second page of the view
+    UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 30, 235, self.view.bounds.size.width - 60, self.view.bounds.size.height - navigationBarY - 235)];
+    
+    // intitlize the label for the detail of sake with left alignment
+    labelOfSakeDetail.textAlignment = NSTextAlignmentLeft;
+    
+    [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
+    
+    // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
+    labelOfSakeDetail.text = @"五人娘は千葉県香取郡神崎町に本社を置く寺田本家によって作られている。千葉県の地酒を代表する銘柄である。寺田本家の仕込水は蔵内の井戸からくみ上げたもので、最先端のテクノロジーにより分子集団の小さな水にしてから使用しており、微生物たちの生命力を高めることに成功している。2010年の仕込みからは契約農家の協力により全量無農薬米を使用することを初めた。江戸時代の伝統的な仕込方法である生もと造りは、近代的な速醸もとに比べて細かい温度管理に手間暇がかかり、杜氏の技術が要求されるが、今でも寺田本家はこの手法を続けている。";
+    
+    // initialize label of sake
+    labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    labelOfSakeDetail.numberOfLines = 0;
+    
+    //[labelOfSakeDetail sizeToFit];
+    
+    // add the detailed explanation label to the scroll view
+    [scrollView addSubview:labelOfSakeDetail];
+}
+
 - (void)amazonLink:(UIButton*) button {
     NSLog(@"Go to safari with amazon link");
     [self openUIWebViewWithURL:@"http://amzn.to/1ULPQRX"];
@@ -271,6 +457,11 @@
     NSLog(@"Go to safari with rakuten link");
     [self openUIWebViewWithURL:@"http://bit.ly/1S0vXD5"];
 }
+
+- (void)release:(UIButton*) button {
+    NSLog(@"Sake released");
+}
+
 
 - (void)openUIWebViewWithURL:(NSString*) urlString {
     
