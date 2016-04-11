@@ -38,6 +38,8 @@
     [self setUpScrollView];
 }
 
+# pragma Animation
+
 - (void)animateDesign {
 
     // start animation
@@ -401,12 +403,12 @@
     [scrollView addSubview:graphImage];
     
     // initialize the image of pin with specific location in the graph
-    UIImageView *sakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
-    sakeImageView.frame = CGRectMake(0, 0, 30, 30);
-    sakeImageView.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
+    UIImageView *sakePinImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
+    sakePinImage.frame = CGRectMake(0, 0, 30, 30);
+    sakePinImage.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
     
     // add the pin to scrollview on top of the graph
-    [scrollView addSubview:sakeImageView];
+    [scrollView addSubview:sakePinImage];
 }
 
 - (void)addAmazonRakutenButton {
@@ -471,8 +473,65 @@
 
 - (void)release:(UIButton*) button {
     NSLog(@"Sake released");
+    
+    alertViewB = [[UIView alloc] initWithFrame:CGRectMake((scrollView.bounds.size.width - 300) / 2, (scrollView.bounds.size.height - 450) / 2, 300, 450)];
+    alertViewF = [[UIView alloc] initWithFrame:CGRectMake((scrollView.bounds.size.width - 250) / 2, (scrollView.bounds.size.height - 400) / 2, 250, 400)];
+    
+    alertViewB.backgroundColor = [[UIColor alloc] initWithRed:156.0/255 green:102.0/255 blue:31.0/255 alpha:1.0];
+    alertViewF.backgroundColor = [[UIColor alloc] initWithRed:238.0/255 green:197.0/255 blue:145.0/255 alpha:1.0];
+
+    [scrollView addSubview:alertViewB];
+    [scrollView addSubview:alertViewF];
+    
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = @"新しいお酒の登録";
+    [alertViewF addSubview:titleLabel];
+    
+    UIImageView *graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
+    graphImage.frame = CGRectMake(0, 60, 250, 166);
+    [alertViewF addSubview:graphImage];
+    
+    
+    UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 226, 250, 50)];
+    commentLabel.textAlignment = NSTextAlignmentLeft;
+    commentLabel.text = @"コメント";
+    [alertViewF addSubview:commentLabel];
+    
+    commentTextView = [[UITextView alloc] initWithFrame:CGRectMake(0, 276, 250, 80)];
+    commentTextView.delegate = self;
+    commentTextView.editable = YES;
+    commentTextView.backgroundColor = [UIColor whiteColor];
+    [alertViewF addSubview:commentTextView];
+    
+    UIButton *buttonCancel = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    UIButton *buttonSubmit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    
+    buttonCancel.frame = CGRectMake(0, 355, 125, 50);
+    buttonSubmit.frame = CGRectMake(125, 355, 125, 50);
+    
+    [buttonCancel setTitle:@"キャンセル" forState:UIControlStateNormal];
+    [buttonSubmit setTitle:@"登録" forState:UIControlStateNormal];
+    
+    [buttonCancel addTarget:self action:@selector(cancelButton:) forControlEvents:UIControlEventTouchUpInside];
+    [buttonSubmit addTarget:self action:@selector(submitButton:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [alertViewF addSubview:buttonCancel];
+    [alertViewF addSubview:buttonSubmit];
 }
 
+- (void)cancelButton:(UIButton*) button {
+    NSLog(@"cancel submission");
+    // called when sake register is cancelled
+    [alertViewF removeFromSuperview];
+    [alertViewB removeFromSuperview];
+}
+
+- (void)submitButton:(UIButton*) button {
+    NSLog(@"register new sake");
+    // called when user pressed submit button to register new sake
+    
+}
 
 - (void)openUIWebViewWithURL:(NSString*) urlString {
     

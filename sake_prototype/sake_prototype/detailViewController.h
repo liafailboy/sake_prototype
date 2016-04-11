@@ -11,11 +11,16 @@
 #import "ASAnyCurlController.h"
 #import <Parse/Parse.h>
 
-@interface detailViewController : UIViewController <UIScrollViewDelegate> {
+@interface detailViewController : UIViewController <UIScrollViewDelegate, UITextViewDelegate> {
     int sakeIDNumber;
     int sakeID;
     
     UIScrollView *scrollView;
+    
+    UIView *alertViewB;
+    UIView *alertViewF;
+    
+    UITextView *commentTextView;
     
     NSMutableArray *arrayOfSakeDictionary;
     NSMutableArray *arrayOfDrunkSakeID;
