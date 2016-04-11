@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import <Parse/Parse.h>
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // initialize Google Maps API for iOS
     [GMSServices provideAPIKey:@"AIzaSyDD2To7-SDVuH2jSJgA3uZZ4ds4qndjcxY"];
+    
+    // initialize Parse API for iOS
+    [Parse setApplicationId:@"GdSxWGQGRyoivePyewRAFNlMkWuuKpv4uNup08bg" clientKey:@"rca0jo89LMRZaBLMHJ4s3KhFLH7DNAsCLIuEycva"];
+    
     return YES;
 }
 
