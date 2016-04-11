@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "ASAnyCurlController.h"
 
 @interface detailViewController : UIViewController <UIScrollViewDelegate> {
     int sakeIDNumber;

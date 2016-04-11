@@ -44,44 +44,45 @@
     [self animateBackDesign];
     
     //[self animateTileDesign];
-    NSTimer *timerForTile = [NSTimer scheduledTimerWithTimeInterval:0.2f
-                                                      target:self
-                                                    selector:@selector(animateTileDesign)
-                                                    userInfo:nil
-                                                     repeats:nil];
+    [NSTimer scheduledTimerWithTimeInterval:0.2f
+                                     target:self
+                                   selector:@selector(animateTileDesign)
+                                   userInfo:nil
+                                    repeats:NO];
     //[self animateSakeDesign];
-    NSTimer *timerForSake = [NSTimer scheduledTimerWithTimeInterval:0.5f
-                                                             target:self
-                                                           selector:@selector(animateSakeDesign)
-                                                           userInfo:nil
-                                                            repeats:nil];
+    [NSTimer scheduledTimerWithTimeInterval:0.5f
+                                     target:self
+                                   selector:@selector(animateSakeDesign)
+                                   userInfo:nil
+                                    repeats:NO];
     //[self animateTagDesign];
-    NSTimer *timerForTag = [NSTimer scheduledTimerWithTimeInterval:0.7f
-                                                             target:self
-                                                           selector:@selector(animateTagDesign)
-                                                           userInfo:nil
-                                                            repeats:nil];
+    [NSTimer scheduledTimerWithTimeInterval:0.7f
+                                     target:self
+                                   selector:@selector(animateTagDesign)
+                                   userInfo:nil
+                                    repeats:NO];
     
     //[self animateStampDesign];
-    NSTimer *timerForStamp = [NSTimer scheduledTimerWithTimeInterval:1.0f
-                                                            target:self
-                                                          selector:@selector(animateStampDesign)
-                                                          userInfo:nil
-                                                           repeats:nil];
+    [NSTimer scheduledTimerWithTimeInterval:1.1f
+                                     target:self
+                                   selector:@selector(animateStampDesign)
+                                   userInfo:nil
+                                    repeats:NO];
 }
 
 - (void)animateBackDesign {
     // stay at the screen from the beginning
-    UIImageView *backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"backTest.png"]];
+    UIImageView *backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    
     backImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     [scrollView addSubview:backImage];
 }
 
 - (void)animateTileDesign {
     // move from up and down into the screen
-    UIImageView *tileBotImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tileBotTest.png"]];
+    UIImageView *tileBotImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"tileBot_%d", sakeID] stringByAppendingString:@".png"]]];
     tileBotImage.frame = CGRectMake(0, 160, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
-    UIImageView *tileTopImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tileTopTest.png"]];
+    UIImageView *tileTopImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"tileTop_%d", sakeID] stringByAppendingString:@".png"]]];
     tileTopImage.frame = CGRectMake(0, -160, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     
     [scrollView addSubview:tileBotImage];
@@ -99,7 +100,7 @@
 
 - (void)animateSakeDesign {
     // fade in sake bottle
-    UIImageView *bottleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"bottleTest.png"]];
+    UIImageView *bottleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"bottle_%d", sakeID] stringByAppendingString:@".png"]]];
     bottleImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     
     bottleImage.alpha = 0;
@@ -117,24 +118,34 @@
 - (void)animateTagDesign {
     // curl down to animate as if it is attached
     // location x = 27, y = 32
-    UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"tagTest.png"]];
-    tagImage.frame = CGRectMake(27, 32, 117, 302);
+    UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"tag_%d", sakeID] stringByAppendingString:@".png"]]];
+    //tagImage.frame = CGRectMake(27, 32, 117, 302);
     
-    tagImage.alpha = 0;
+    //tagImage.alpha = 0;
     
-    [scrollView addSubview:tagImage];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(27, 32, 117, 302)];
     
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.8];
+    view.alpha = 0;
     
-    tagImage.alpha = 1;
+    [scrollView addSubview:view];
     
-    [UIView commitAnimations];
+    [ASAnyCurlController animateTransitionDownFromView:view toView:tagImage duration:0.8 options:ASAnyCurlOptionBottomRight | ASAnyCurlOptionVertical completion:^{
+        
+    }];
+    
+    //[scrollView addSubview:tagImage];
+    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:0.8];
+//    
+//    tagImage.alpha = 1;
+//    
+//    [UIView commitAnimations];
 }
 
 - (void)animateStampDesign {
     
-    UIImageView *stampImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stampTest.png"]];
+    UIImageView *stampImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stamp.png"]];
     stampImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     
     stampImage.alpha = 0;
@@ -142,7 +153,7 @@
     [scrollView addSubview:stampImage];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.8];
+    [UIView setAnimationDuration:0.7];
     
     stampImage.alpha = 1;
     
@@ -167,7 +178,7 @@
     [scrollView addSubview:rakuten];
     
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.8];
+    [UIView setAnimationDuration:0.7];
     
     amazon.alpha = 1;
     rakuten.alpha = 1;
@@ -176,20 +187,20 @@
 }
 
 
-- (void)testAnimation {
-    UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", 0] stringByAppendingString:@".png"]]];
-    
-    detailSakeImageView.frame = self.view.bounds;
-    
-    [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:1.0];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
-    
-    [self.view addSubview:detailSakeImageView];
-    
-    [UIView commitAnimations];
-}
+//- (void)testAnimation {
+//    UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", 0] stringByAppendingString:@".png"]]];
+//    
+//    detailSakeImageView.frame = self.view.bounds;
+//    
+//    [UIView beginAnimations:nil context:nil];
+//    [UIView setAnimationDuration:1.0];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
+//    
+//    [self.view addSubview:detailSakeImageView];
+//    
+//    [UIView commitAnimations];
+//}
 
 - (void)setUpNavigationBar {
     
@@ -284,7 +295,7 @@
     sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
     // add images if sake is drunk. Else, leave it blank.
-    if (sakeID == 0) {
+    if (sakeID < 10) {
         [self animateDesign];
     } else if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
         
