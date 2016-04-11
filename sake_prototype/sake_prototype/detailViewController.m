@@ -395,20 +395,20 @@
     }
     
     // initialize the image of graph of acidity and sake meter
-    UIImageView *graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
-    graphImage.frame = CGRectMake(0, 0, 375, 249);
-    graphImage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
+    UIImageView *graphImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
+    graphImageThirdPage.frame = CGRectMake(0, 0, 375, 249);
+    graphImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
     
     // add the graph to scrollview
-    [scrollView addSubview:graphImage];
+    [scrollView addSubview:graphImageThirdPage];
     
     // initialize the image of pin with specific location in the graph
-    UIImageView *sakePinImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
-    sakePinImage.frame = CGRectMake(0, 0, 30, 30);
-    sakePinImage.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
+    UIImageView *sakePinImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
+    sakePinImageThirdPage.frame = CGRectMake(0, 0, 30, 30);
+    sakePinImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
     
     // add the pin to scrollview on top of the graph
-    [scrollView addSubview:sakePinImage];
+    [scrollView addSubview:sakePinImageThirdPage];
 }
 
 - (void)addAmazonRakutenButton {
@@ -474,24 +474,30 @@
 - (void)release:(UIButton*) button {
     NSLog(@"Sake released");
     
-    alertViewB = [[UIView alloc] initWithFrame:CGRectMake((scrollView.bounds.size.width - 300) / 2, (scrollView.bounds.size.height - 450) / 2, 300, 450)];
-    alertViewF = [[UIView alloc] initWithFrame:CGRectMake((scrollView.bounds.size.width - 250) / 2, (scrollView.bounds.size.height - 400) / 2, 250, 400)];
+    scrollView.scrollEnabled = NO;
+    
+    alertViewB = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 300) / 2, (self.view.bounds.size.height - 450) / 2, 300, 450)];
+    alertViewF = [[UIView alloc] initWithFrame:CGRectMake((self.view.bounds.size.width - 250) / 2, (self.view.bounds.size.height - 400) / 2, 250, 400)];
     
     alertViewB.backgroundColor = [[UIColor alloc] initWithRed:156.0/255 green:102.0/255 blue:31.0/255 alpha:1.0];
     alertViewF.backgroundColor = [[UIColor alloc] initWithRed:238.0/255 green:197.0/255 blue:145.0/255 alpha:1.0];
 
-    [scrollView addSubview:alertViewB];
-    [scrollView addSubview:alertViewF];
+    [self.view addSubview:alertViewB];
+    [self.view addSubview:alertViewF];
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text = @"新しいお酒の登録";
     [alertViewF addSubview:titleLabel];
     
-    UIImageView *graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
+    graphImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
     graphImage.frame = CGRectMake(0, 60, 250, 166);
+    graphImage.userInteractionEnabled = YES;
     [alertViewF addSubview:graphImage];
     
+    sakePinImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
+    sakePinImage.frame = CGRectMake(0, 0, 30, 30);
+    pinAdded = NO;
     
     UILabel *commentLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 226, 250, 50)];
     commentLabel.textAlignment = NSTextAlignmentLeft;
@@ -525,11 +531,55 @@
     // called when sake register is cancelled
     [alertViewF removeFromSuperview];
     [alertViewB removeFromSuperview];
+    
+    scrollView.scrollEnabled = YES;
 }
 
 - (void)submitButton:(UIButton*) button {
     NSLog(@"register new sake");
     // called when user pressed submit button to register new sake
+    // [commentTextView text] gives text in the text field
+    [alertViewF removeFromSuperview];
+    [alertViewB removeFromSuperview];
+    
+    scrollView.scrollEnabled = YES;
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:graphImage];
+    
+    if (touch.view == graphImage) {
+        if (pinAdded == NO) {
+            sakePinImage.center = touchLocation;
+            [graphImage addSubview:sakePinImage];
+        } else {
+            sakePinImage.center = touchLocation;
+        }
+    }
+    pinAdded = YES;
+}
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    UITouch *touch = [[event allTouches] anyObject];
+    CGPoint touchLocation = [touch locationInView:graphImage];
+    
+    if (touchLocation.x <= 0) {
+        touchLocation.x = 1;
+    }
+    if (touchLocation.x >= 250) {
+        touchLocation.x = 249;
+    }
+    if (touchLocation.y <= 0) {
+        touchLocation.y = 1;
+    }
+    if (touchLocation.y >= 166) {
+        touchLocation.y = 165;
+    }
+    
+    if (touch.view == graphImage) {
+        sakePinImage.center = touchLocation;
+    }
     
 }
 

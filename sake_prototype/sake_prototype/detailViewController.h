@@ -17,6 +17,9 @@
     
     UIScrollView *scrollView;
     
+    UIImageView *graphImage;
+    UIImageView *sakePinImage;
+    
     UIView *alertViewB;
     UIView *alertViewF;
     
@@ -29,6 +32,7 @@
     
     CGSize contentSize;
     
+    BOOL pinAdded;
 }
 
 @end
