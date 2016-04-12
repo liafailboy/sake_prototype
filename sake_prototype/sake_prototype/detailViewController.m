@@ -329,25 +329,45 @@
 
 - (void)setSecondPageOfScrollView {
     
-    UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
+    UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", 24] stringByAppendingString:@".png"]]];
     detailPictureImageView.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, 135);
     [scrollView addSubview:detailPictureImageView];
     
     // add sake label in second page of the view
-    UIImageView *detailLabelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_label_%d", sakeID] stringByAppendingString:@".png"]]];
+    UIImageView *detailLabelImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detail_label"]];
     detailLabelImageView.frame = CGRectMake(self.view.bounds.size.width, 135, self.view.bounds.size.width, 467);
     [scrollView addSubview:detailLabelImageView];
     
     // add text explanation in second page of the view
-    UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 30, 235, self.view.bounds.size.width - 60, self.view.bounds.size.height - navigationBarY - 235)];
+    UILabel *labelOfSake = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200, 20)];
+    
+    labelOfSake.center = CGPointMake(self.view.bounds.size.width * 3 / 2, 210);
+    
+    // intitlize the label for the detail of sake with left alignment
+    labelOfSake.textAlignment = NSTextAlignmentCenter;
+    
+    [labelOfSake setFont:[UIFont fontWithName:@"lmroman10-regular" size:16.0]];
+    
+    NSString *sakeName = [sakeDictionary objectForKey:@"NAMEENG"];
+    
+    // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
+    labelOfSake.text = [NSString stringWithFormat:@"- %@ -", sakeName];
+    
+    // add text explanation in second page of the view
+    UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 36, 220, self.view.bounds.size.width - 72, self.view.bounds.size.height - navigationBarY - 235)];
     
     // intitlize the label for the detail of sake with left alignment
     labelOfSakeDetail.textAlignment = NSTextAlignmentLeft;
     
-    [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
+    [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:16.0]];
     
     // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
-    labelOfSakeDetail.text = [sakeDictionary objectForKey:@"DETAILJP"];
+    NSString *labelText = [sakeDictionary objectForKey:@"DETAILJP"];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:labelText];
+    NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:4];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [labelText length])];
+    labelOfSakeDetail.attributedText = attributedString;
     
     // initialize label of sake
     labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
@@ -357,6 +377,7 @@
     //[labelOfSakeDetail sizeToFit];
     
     // add the detailed explanation label to the scroll view
+    [scrollView addSubview:labelOfSake];
     [scrollView addSubview:labelOfSakeDetail];
 }
 
