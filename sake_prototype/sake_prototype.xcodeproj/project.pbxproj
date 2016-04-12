@@ -475,6 +475,8 @@
 		E21792CA1C79002A0052D414 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E21792D61C79002A0052D414 /* Assets.xcassets */,
+				E21792DB1C79002A0052D414 /* Info.plist */,
 				E21792CB1C79002A0052D414 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -750,8 +752,6 @@
 		E2FAD4121CBD85D000101EEC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E21792D61C79002A0052D414 /* Assets.xcassets */,
-				E21792DB1C79002A0052D414 /* Info.plist */,
 				E21792CD1C79002A0052D414 /* AppDelegate.h */,
 				E21792CE1C79002A0052D414 /* AppDelegate.m */,
 				E26695DF1CBC2E6500FE20A5 /* ASAnyCurlController.h */,
