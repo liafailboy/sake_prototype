@@ -328,6 +328,7 @@
 }
 
 - (void)setSecondPageOfScrollView {
+    
     UIImageView *detailPictureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_picture_%d", sakeID] stringByAppendingString:@".png"]]];
     detailPictureImageView.frame = CGRectMake(self.view.bounds.size.width, 0, self.view.bounds.size.width, 135);
     [scrollView addSubview:detailPictureImageView];
@@ -346,7 +347,7 @@
     [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
     
     // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
-    labelOfSakeDetail.text = @"五人娘は千葉県香取郡神崎町に本社を置く寺田本家によって作られている。千葉県の地酒を代表する銘柄である。寺田本家の仕込水は蔵内の井戸からくみ上げたもので、最先端のテクノロジーにより分子集団の小さな水にしてから使用しており、微生物たちの生命力を高めることに成功している。2010年の仕込みからは契約農家の協力により全量無農薬米を使用することを初めた。江戸時代の伝統的な仕込方法である生もと造りは、近代的な速醸もとに比べて細かい温度管理に手間暇がかかり、杜氏の技術が要求されるが、今でも寺田本家はこの手法を続けている。";
+    labelOfSakeDetail.text = [sakeDictionary objectForKey:@"DETAILJP"];
     
     // initialize label of sake
     labelOfSakeDetail.lineBreakMode = NSLineBreakByWordWrapping;
