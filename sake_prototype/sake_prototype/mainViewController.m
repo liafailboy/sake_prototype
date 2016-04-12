@@ -127,6 +127,7 @@
     
     mapView_.myLocationEnabled = YES;
     mapView_.delegate = self;
+    
     [bottomScrollView addSubview:mapView_];
     
     for (int i = 0; i < [arrayOfSakeDictionary count]; i++) {
@@ -223,6 +224,8 @@
     bottomScrollView.bounces = NO;
     
     bottomScrollView.showsHorizontalScrollIndicator = NO;
+    
+    bottomScrollView.scrollEnabled = NO;
     
     [self.view addSubview:bottomScrollView];
 }
