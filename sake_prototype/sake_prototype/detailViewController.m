@@ -291,27 +291,14 @@
 - (void)addInformationOnScrollView {
     
     // get the sake date from shared array from previous view
-    NSDictionary *sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
+    sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
     
     // add imageView if it is already exist
     sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
     // add images if sake is drunk. Else, leave it blank.
-    if (sakeID < 10) {
+    if (sakeID < 25) {
         [self animateDesign];
-    } else if ([arrayOfDrunkSakeID containsObject:[NSNumber numberWithInt:sakeID]]) {
-        
-        // add detail of sake in first page of the view
-        UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", sakeID] stringByAppendingString:@".png"]]];
-        detailSakeImageView.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
-        [scrollView addSubview:detailSakeImageView];
-        
-        // add amazon and rakuten link to buy sake
-        [self addAmazonRakutenButton];
-        
-        // add picture in second page of the view
-        [self setSecondPageOfScrollView];
-        
     } else {
         // add detail of sake in first page of the view
         UIImageView *detailSakeUnknownImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"detail_sake_unknown.png"]];
@@ -329,86 +316,16 @@
         
         [scrollView addSubview:release];
         
+        scrollView.scrollEnabled = NO;
+        
         // add amazon and rakuten link to buy sake
         [self addAmazonRakutenButton];
         
         // add picture in second page of the view
         [self setSecondPageOfScrollView];
-        
-        
-//        // initialize labels for sake information
-//        UILabel *labelOfSakeName = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        UILabel *labelOfSakePre = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        UILabel *labelOfSakeCity = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        UILabel *labelOfSakeCom = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        UILabel *labelOfSakeAci = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        UILabel *labelOfSakeMeter = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 100)];
-//        
-//        // set the location of each label
-//        labelOfSakeName.center = CGPointMake(contentSize.width / 6, contentSize.height / 2);
-//        labelOfSakePre.center = CGPointMake(contentSize.width / 2 , contentSize.height / 2 - 50);
-//        labelOfSakeCity.center = CGPointMake(contentSize.width / 2, contentSize.height / 2);
-//        labelOfSakeCom.center = CGPointMake(contentSize.width / 2, contentSize.height / 2 + 50);
-//        labelOfSakeAci.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 - 25);
-//        labelOfSakeMeter.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2 + 25);
-//        
-//        // set the alignment of labels to center
-//        labelOfSakeName.textAlignment = NSTextAlignmentCenter;
-//        labelOfSakePre.textAlignment = NSTextAlignmentCenter;
-//        labelOfSakeCity.textAlignment = NSTextAlignmentCenter;
-//        labelOfSakeCom.textAlignment = NSTextAlignmentCenter;
-//        labelOfSakeAci.textAlignment = NSTextAlignmentCenter;
-//        labelOfSakeMeter.textAlignment = NSTextAlignmentCenter;
-//        
-//        // adjust the font size to the width of the label
-//        [labelOfSakeName setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        [labelOfSakePre setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        [labelOfSakeCity setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        [labelOfSakeCom setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        [labelOfSakeAci setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        [labelOfSakeMeter setFont:[UIFont fontWithName:@"HannariMincho" size:48.0]];
-//        
-//        // adjust the font size if it does not fit the width
-//        labelOfSakeName.adjustsFontSizeToFitWidth = YES;
-//        labelOfSakePre.adjustsFontSizeToFitWidth = YES;
-//        labelOfSakeCity.adjustsFontSizeToFitWidth = YES;
-//        labelOfSakeCom.adjustsFontSizeToFitWidth = YES;
-//        labelOfSakeAci.adjustsFontSizeToFitWidth = YES;
-//        labelOfSakeMeter.adjustsFontSizeToFitWidth = YES;
-//        
-//        
-//        // set the text to label from sake dictionary
-//        labelOfSakeName.text = [sakeDictionary objectForKey:@"NAME"];
-//        labelOfSakePre.text = [NSString stringWithFormat:@"都道府県: %@",[sakeDictionary objectForKey:@"PREFECTURE"]];
-//        labelOfSakeCity.text = [NSString stringWithFormat:@"都市: %@",[sakeDictionary objectForKey:@"CITY"]];
-//        labelOfSakeCom.text = [NSString stringWithFormat:@"醸造元: %@",[sakeDictionary objectForKey:@"COMPANY"]];
-//        labelOfSakeAci.text = [NSString stringWithFormat:@"酸度: %@", [sakeDictionary objectForKey:@"ACIDITY"]];
-//        labelOfSakeMeter.text = [NSString stringWithFormat:@"日本酒度: %@", [sakeDictionary objectForKey:@"SAKE_METER"]];
-//        
-//        // add labels to the view
-//        [scrollView addSubview:labelOfSakeName];
-//        [scrollView addSubview:labelOfSakePre];
-//        [scrollView addSubview:labelOfSakeCity];
-//        [scrollView addSubview:labelOfSakeCom];
-//        [scrollView addSubview:labelOfSakeAci];
-//        [scrollView addSubview:labelOfSakeMeter];
     }
-    
-    // initialize the image of graph of acidity and sake meter
-    UIImageView *graphImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
-    graphImageThirdPage.frame = CGRectMake(0, 0, 375, 249);
-    graphImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
-    
-    // add the graph to scrollview
-    [scrollView addSubview:graphImageThirdPage];
-    
-    // initialize the image of pin with specific location in the graph
-    UIImageView *sakePinImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
-    sakePinImageThirdPage.frame = CGRectMake(0, 0, 30, 30);
-    sakePinImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
-    
-    // add the pin to scrollview on top of the graph
-    [scrollView addSubview:sakePinImageThirdPage];
+    // add picture in third page of the view
+    [self setThirdPageOfScrollView];
 }
 
 - (void)addAmazonRakutenButton {
@@ -459,6 +376,24 @@
     
     // add the detailed explanation label to the scroll view
     [scrollView addSubview:labelOfSakeDetail];
+}
+
+- (void)setThirdPageOfScrollView {
+    // initialize the image of graph of acidity and sake meter
+    UIImageView *graphImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
+    graphImageThirdPage.frame = CGRectMake(0, 0, 375, 249);
+    graphImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6, contentSize.height / 2);
+    
+    // add the graph to scrollview
+    [scrollView addSubview:graphImageThirdPage];
+    
+    // initialize the image of pin with specific location in the graph
+    UIImageView *sakePinImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sake_pin.png"]];
+    sakePinImageThirdPage.frame = CGRectMake(0, 0, 30, 30);
+    sakePinImageThirdPage.center = CGPointMake(contentSize.width * 5 / 6 + (0 - [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue] * 37.5 / 2), contentSize.height / 2 + (1.5 - [[sakeDictionary objectForKey:@"ACIDITY"] floatValue]) * 249);
+    
+    // add the pin to scrollview on top of the graph
+    [scrollView addSubview:sakePinImageThirdPage];
 }
 
 - (void)amazonLink:(UIButton*) button {
