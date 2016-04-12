@@ -74,7 +74,14 @@
 
 - (void)animateBackDesign {
     // stay at the screen from the beginning
-    UIImageView *backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background.png"]];
+    UIImageView *backImage;
+    if (sakeID < 10) {
+        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_0.png"]];
+    } else if (sakeID < 17) {
+        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_1.png"]];
+    } else if (sakeID < 24) {
+        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2.png"]];
+    }
     
     backImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     [scrollView addSubview:backImage];
