@@ -353,7 +353,7 @@
     // intitlize the label for the detail of sake with left alignment
     labelOfSake.textAlignment = NSTextAlignmentCenter;
     
-    [labelOfSake setFont:[UIFont fontWithName:@"lmroman10-regular" size:16.0]];
+    [labelOfSake setFont:[UIFont fontWithName:@"lmroman10-regular" size:18.0]];
     
     NSString *sakeName = [sakeDictionary objectForKey:@"NAMEENG"];
     
@@ -361,12 +361,12 @@
     labelOfSake.text = [NSString stringWithFormat:@"- %@ -", sakeName];
     
     // add text explanation in second page of the view
-    UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 36, 220, self.view.bounds.size.width - 72, self.view.bounds.size.height - navigationBarY - 235)];
+    UILabel *labelOfSakeDetail = [[UILabel alloc] initWithFrame:CGRectMake(self.view.bounds.size.width + 30, 220, self.view.bounds.size.width - 60, self.view.bounds.size.height - navigationBarY - 235)];
     
     // intitlize the label for the detail of sake with left alignment
     labelOfSakeDetail.textAlignment = NSTextAlignmentLeft;
     
-    [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:16.0]];
+    [labelOfSakeDetail setFont:[UIFont fontWithName:@"HannariMincho" size:18.0]];
     
     // HAVE TO BE CHANGED ACCORDING TO THE EXPLANATION OF THE SPECIFIC SAKE
     NSString *labelText = [sakeDictionary objectForKey:@"DETAILJP"];
