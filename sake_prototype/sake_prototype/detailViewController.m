@@ -38,7 +38,7 @@
     [self setUpScrollView];
 }
 
-# pragma Animation
+# pragma animation
 
 - (void)animateDesign {
 
@@ -188,21 +188,7 @@
     [UIView commitAnimations];
 }
 
-
-//- (void)testAnimation {
-//    UIImageView *detailSakeImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[[NSString stringWithFormat:@"detail_sake_%d", 0] stringByAppendingString:@".png"]]];
-//    
-//    detailSakeImageView.frame = self.view.bounds;
-//    
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:1.0];
-//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionCurlDown forView:self.view cache:YES];
-//    
-//    [self.view addSubview:detailSakeImageView];
-//    
-//    [UIView commitAnimations];
-//}
+# pragma setup navigationbar
 
 - (void)setUpNavigationBar {
     
@@ -224,6 +210,8 @@
     // add navigation bar into main screen
     [self.view addSubview:navigationBar];
 }
+
+# pragma setup button
 
 - (void)setUpViewChangeButton {
     
@@ -259,9 +247,13 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+# pragma setup data
+
 - (void)getSakeID {
     sakeIDNumber = (int)[defaults integerForKey:@"sakeID"];
 }
+
+# pragma setup scrollview
 
 - (void)setUpScrollView {
     
@@ -296,6 +288,17 @@
     // add imageView if it is already exist
     sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
+    // animate or add picture in first page of the view
+    [self setFirstPageOfScrollView];
+    
+    // add picture in second page of the view
+    [self setSecondPageOfScrollView];
+    
+    // add picture in third page of the view
+    [self setThirdPageOfScrollView];
+}
+
+- (void)setFirstPageOfScrollView {
     // add images if sake is drunk. Else, leave it blank.
     if (sakeID < 25) {
         [self animateDesign];
@@ -321,29 +324,7 @@
         // add amazon and rakuten link to buy sake
         [self addAmazonRakutenButton];
         
-        // add picture in second page of the view
-        [self setSecondPageOfScrollView];
     }
-    // add picture in third page of the view
-    [self setThirdPageOfScrollView];
-}
-
-- (void)addAmazonRakutenButton {
-    // add amazon and rakuten link to buy sake
-    UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
-    
-    amazon.frame = CGRectMake(27, 560, 32, 32);
-    rakuten.frame = CGRectMake(78, 560, 32, 32);
-    
-    [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
-    [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
-    
-    [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
-    [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [scrollView addSubview:amazon];
-    [scrollView addSubview:rakuten];
 }
 
 - (void)setSecondPageOfScrollView {
@@ -396,6 +377,26 @@
     [scrollView addSubview:sakePinImageThirdPage];
 }
 
+# pragma amazon, rakuten button
+
+- (void)addAmazonRakutenButton {
+    // add amazon and rakuten link to buy sake
+    UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
+    
+    amazon.frame = CGRectMake(27, 560, 32, 32);
+    rakuten.frame = CGRectMake(78, 560, 32, 32);
+    
+    [amazon setImage:[UIImage imageNamed:@"amazon_logo.png"] forState:UIControlStateNormal];
+    [rakuten setImage:[UIImage imageNamed:@"rakuten_logo.png"] forState:UIControlStateNormal];
+    
+    [amazon addTarget:self action:@selector(amazonLink:) forControlEvents:UIControlEventTouchUpInside];
+    [rakuten addTarget:self action:@selector(rakutenLink:) forControlEvents:UIControlEventTouchUpInside];
+    
+    [scrollView addSubview:amazon];
+    [scrollView addSubview:rakuten];
+}
+
 - (void)amazonLink:(UIButton*) button {
     NSLog(@"Go to safari with amazon link");
     [self openUIWebViewWithURL:@"http://amzn.to/1ULPQRX"];
@@ -405,6 +406,25 @@
     NSLog(@"Go to safari with rakuten link");
     [self openUIWebViewWithURL:@"http://bit.ly/1S0vXD5"];
 }
+
+- (void)openUIWebViewWithURL:(NSString*) urlString {
+    
+    [defaults setObject:urlString forKey:@"webURL"];
+    
+    UIViewController *wVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webViewController"];
+    
+    // initiazlize animation effect to push new view controller from right to left
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.3;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    transition.type = kCATransitionPush;
+    transition.subtype = kCATransitionFromTop;
+    
+    [self.view.window.layer addAnimation:transition forKey:nil];
+    [self presentViewController:wVC animated:NO completion:nil];
+}
+
+# pragma add new sake button
 
 - (void)release:(UIButton*) button {
     NSLog(@"Sake released");
@@ -518,22 +538,7 @@
     
 }
 
-- (void)openUIWebViewWithURL:(NSString*) urlString {
-    
-    [defaults setObject:urlString forKey:@"webURL"];
-    
-    UIViewController *wVC = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"webViewController"];
-    
-    // initiazlize animation effect to push new view controller from right to left
-    CATransition *transition = [CATransition animation];
-    transition.duration = 0.3;
-    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
-    transition.type = kCATransitionPush;
-    transition.subtype = kCATransitionFromTop;
-    
-    [self.view.window.layer addAnimation:transition forKey:nil];
-    [self presentViewController:wVC animated:NO completion:nil];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
