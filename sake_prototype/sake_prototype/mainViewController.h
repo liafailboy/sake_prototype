@@ -17,6 +17,8 @@
     
     UIButton *buttonForViewChange;
     
+    UILabel *titleLabel;
+    
     int buttonX;
     int buttonY;
     int currentPage;

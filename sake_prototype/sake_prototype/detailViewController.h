@@ -23,6 +23,8 @@
     UIView *alertViewB;
     UIView *alertViewF;
     
+    UILabel *titleLabel;
+    
     UITextView *commentTextView;
     
     NSMutableArray *arrayOfSakeDictionary;

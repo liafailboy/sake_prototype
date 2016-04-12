@@ -90,6 +90,7 @@
 		E266963F1CBC386300FE20A5 /* tileBot_8.png in Resources */ = {isa = PBXBuildFile; fileRef = E266963B1CBC386300FE20A5 /* tileBot_8.png */; };
 		E26696401CBC386300FE20A5 /* tileTop_8.png in Resources */ = {isa = PBXBuildFile; fileRef = E266963C1CBC386300FE20A5 /* tileTop_8.png */; };
 		E26E45C31C865175003BC713 /* sake_list.json in Resources */ = {isa = PBXBuildFile; fileRef = E26E45C21C865175003BC713 /* sake_list.json */; };
+		E279931D1CBD97C4001060F8 /* AoyagiKouzanTOTF.otf in Resources */ = {isa = PBXBuildFile; fileRef = E279931B1CBD9757001060F8 /* AoyagiKouzanTOTF.otf */; };
 		E29049DA1C8777560041D446 /* change_to_map.png in Resources */ = {isa = PBXBuildFile; fileRef = E29049D81C8777560041D446 /* change_to_map.png */; };
 		E29049DB1C8777560041D446 /* change_to_grid.png in Resources */ = {isa = PBXBuildFile; fileRef = E29049D91C8777560041D446 /* change_to_grid.png */; };
 		E29CCB621C90DE96001DDD09 /* graph.png in Resources */ = {isa = PBXBuildFile; fileRef = E29CCB611C90DE96001DDD09 /* graph.png */; };
@@ -294,6 +295,7 @@
 		E266963B1CBC386300FE20A5 /* tileBot_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileBot_8.png; sourceTree = "<group>"; };
 		E266963C1CBC386300FE20A5 /* tileTop_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tileTop_8.png; sourceTree = "<group>"; };
 		E26E45C21C865175003BC713 /* sake_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sake_list.json; sourceTree = "<group>"; };
+		E279931B1CBD9757001060F8 /* AoyagiKouzanTOTF.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AoyagiKouzanTOTF.otf; sourceTree = "<group>"; };
 		E29049D81C8777560041D446 /* change_to_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_to_map.png; sourceTree = "<group>"; };
 		E29049D91C8777560041D446 /* change_to_grid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = change_to_grid.png; sourceTree = "<group>"; };
 		E29CCB611C90DE96001DDD09 /* graph.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = graph.png; sourceTree = "<group>"; };
@@ -723,6 +725,7 @@
 		E2FAD4101CBD85A100101EEC /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E279931B1CBD9757001060F8 /* AoyagiKouzanTOTF.otf */,
 				E2FAD40E1CBD7FE300101EEC /* lmroman10-regular.otf */,
 				E2EF41D01C90BC2700A49306 /* Hannari.otf */,
 			);
@@ -1203,6 +1206,7 @@
 				E2FAD4661CBD8E4F00101EEC /* tileTop_17.png in Resources */,
 				E2FAD4531CBD8E4200101EEC /* bottle_15.png in Resources */,
 				E2C2DFC01CB4CEAA00E1AAE7 /* button_sake_12.png in Resources */,
+				E279931D1CBD97C4001060F8 /* AoyagiKouzanTOTF.otf in Resources */,
 				E2FAD40F1CBD858800101EEC /* lmroman10-regular.otf in Resources */,
 				E2FAD48B1CBD8E7A00101EEC /* bottle_22.png in Resources */,
 				E2FAD4861CBD8E7400101EEC /* tileTop_21.png in Resources */,

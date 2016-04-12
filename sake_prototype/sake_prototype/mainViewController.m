@@ -246,6 +246,19 @@
     
     // add navigation bar into main screen
     [self.view addSubview:navigationBar];
+    
+    // set the title on navigation bar
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 375, 45)];
+    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [titleLabel setFont:[UIFont fontWithName:@"AoyagiKouzanFontTOTF" size:24.0]];
+    
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    
+    titleLabel.text = @"日本酒大全";
+    
+    [self.view addSubview:titleLabel];
 }
 
 - (void)setUpViewChangeButton {
@@ -382,10 +395,12 @@
         currentPage = 1;
         [button setBackgroundImage:nil forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"change_to_grid.png"] forState:UIControlStateNormal];
+        titleLabel.text = @"地図";
     } else {
         currentPage = 0;
         [button setBackgroundImage:nil forState:UIControlStateNormal];
         [button setImage:[UIImage imageNamed:@"change_to_map.png"] forState:UIControlStateNormal];
+        titleLabel.text = @"日本酒大全";
     }
     CGRect frame = bottomScrollView.frame;
     frame.origin.x = frame.size.width * currentPage;
@@ -419,9 +434,11 @@
     if (currentPage == 0) {
         [buttonForViewChange setBackgroundImage:nil forState:UIControlStateNormal];
         [buttonForViewChange setImage:[UIImage imageNamed:@"change_to_map.png"] forState:UIControlStateNormal];
+        titleLabel.text = @"日本酒大全";
     } else {
         [buttonForViewChange setBackgroundImage:nil forState:UIControlStateNormal];
         [buttonForViewChange setImage:[UIImage imageNamed:@"change_to_grid.png"] forState:UIControlStateNormal];
+        titleLabel.text = @"地図";
     }
 }
 

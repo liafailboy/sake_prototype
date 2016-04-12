@@ -216,6 +216,19 @@
     
     // add navigation bar into main screen
     [self.view addSubview:navigationBar];
+    
+    // set the title on navigation bar
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 375, 45)];
+    
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    
+    [titleLabel setFont:[UIFont fontWithName:@"AoyagiKouzanFontTOTF" size:24.0]];
+    
+    [titleLabel setTextColor:[UIColor whiteColor]];
+    
+    titleLabel.text = [sakeDictionary objectForKey:@"NAMEJPN"];
+    
+    [self.view addSubview:titleLabel];
 }
 
 # pragma setup button
@@ -258,6 +271,12 @@
 
 - (void)getSakeID {
     sakeIDNumber = (int)[defaults integerForKey:@"sakeID"];
+    
+    // get the sake date from shared array from previous view
+    sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
+    
+    // add imageView if it is already exist
+    sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
 }
 
 # pragma setup scrollview
@@ -288,12 +307,6 @@
 }
 
 - (void)addInformationOnScrollView {
-    
-    // get the sake date from shared array from previous view
-    sakeDictionary = [arrayOfSakeDictionary objectAtIndex:sakeIDNumber];
-    
-    // add imageView if it is already exist
-    sakeID = [[sakeDictionary objectForKey:@"SAKE_ID"] intValue];
     
     // animate or add picture in first page of the view
     [self setFirstPageOfScrollView];
@@ -389,6 +402,7 @@
 }
 
 - (void)setThirdPageOfScrollView {
+    
     // initialize the image of graph of acidity and sake meter
     UIImageView *graphImageThirdPage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"graph.png"]];
     graphImageThirdPage.frame = CGRectMake(0, 0, 375, 249);
@@ -567,7 +581,7 @@
     
 }
 
-
+# pragma memory handler
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
