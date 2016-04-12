@@ -185,7 +185,7 @@
 //        
 //        [mapView_ animateToCameraPosition:goBackCamera];
 //    }
-    
+//    
 //    if (position.target.longitude > rightLongitude) {
 //        GMSCameraPosition *goBackCamera = [GMSCameraPosition cameraWithLatitude:position.target.latitude
 //                                                                      longitude:rightLongitude
