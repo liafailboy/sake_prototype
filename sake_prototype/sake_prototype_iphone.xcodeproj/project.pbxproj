@@ -1039,7 +1039,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E21792C21C79002A0052D414 /* Build configuration list for PBXProject "sake_prototype" */;
+			buildConfigurationList = E21792C21C79002A0052D414 /* Build configuration list for PBXProject "sake_prototype_iphone" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1517,7 +1517,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E21792C21C79002A0052D414 /* Build configuration list for PBXProject "sake_prototype" */ = {
+		E21792C21C79002A0052D414 /* Build configuration list for PBXProject "sake_prototype_iphone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E21792F21C79002A0052D414 /* Debug */,
