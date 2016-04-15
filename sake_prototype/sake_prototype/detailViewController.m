@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // get the store data of sake
     defaults = [NSUserDefaults standardUserDefaults];
@@ -43,7 +42,7 @@
 - (void)animateDesign {
 
     // start animation
-    [self animateBackDesign];
+    [self animateBackGroundDesign];
     
     //[self animateTileDesign];
     [NSTimer scheduledTimerWithTimeInterval:0.2f
@@ -72,19 +71,19 @@
                                     repeats:NO];
 }
 
-- (void)animateBackDesign {
+- (void)animateBackGroundDesign {
     // stay at the screen from the beginning
-    UIImageView *backImage;
+    UIImageView *backGroundImage;
     if (sakeID < 10) {
-        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_0.png"]];
+        backGroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_0.png"]];
     } else if (sakeID < 17) {
-        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_1.png"]];
+        backGroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_1.png"]];
     } else if (sakeID < 24) {
-        backImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2.png"]];
+        backGroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2.png"]];
     }
     
     backImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
-    [scrollView addSubview:backImage];
+    [scrollView addSubview:backGroundImage];
 }
 
 - (void)animateTileDesign {
@@ -141,19 +140,11 @@
     [ASAnyCurlController animateTransitionDownFromView:view toView:tagImage duration:0.8 options:ASAnyCurlOptionBottomRight | ASAnyCurlOptionVertical completion:^{
         
     }];
-    
-    //[scrollView addSubview:tagImage];
-    
-//    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.8];
-//    
-//    tagImage.alpha = 1;
-//    
-//    [UIView commitAnimations];
 }
 
 - (void)animateStampDesign {
     
+    // add new 酒 label stamp on the screen with fade in animation
     UIImageView *stampImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"stamp.png"]];
     stampImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     
@@ -168,6 +159,8 @@
     
     [UIView commitAnimations];
     
+    
+    // add new amazon and rakuten link button with fade in animation
     UIButton *amazon = [UIButton buttonWithType:UIButtonTypeCustom];
     UIButton *rakuten = [UIButton buttonWithType:UIButtonTypeCustom];
     
@@ -300,13 +293,13 @@
     // disable bounce
     scrollView.bounces = NO;
     
-    [self addInformationOnScrollView];
+    [self setPagesOfScrollView];
     
     // add scrollView to main screen
     [self.view addSubview:scrollView];
 }
 
-- (void)addInformationOnScrollView {
+- (void)setPagesOfScrollView {
     
     // animate or add picture in first page of the view
     [self setFirstPageOfScrollView];
@@ -483,7 +476,7 @@
     [self.view addSubview:alertViewB];
     [self.view addSubview:alertViewF];
     
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
+    titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 250, 50)];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.text = @"新しいお酒の登録";
     [alertViewF addSubview:titleLabel];

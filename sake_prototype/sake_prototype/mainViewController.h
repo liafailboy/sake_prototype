@@ -12,13 +12,16 @@
 
 @interface mainViewController : UIViewController <UIScrollViewDelegate, GMSMapViewDelegate> {
     
+    // scrollviews for vertical and horizontal
     UIScrollView *bottomScrollView;
     UIScrollView *scrollView;
     
     UIButton *buttonForViewChange;
     
+    // label at the top of navigation bar
     UILabel *titleLabel;
     
+    // location of button adn current page index
     int buttonX;
     int buttonY;
     int currentPage;

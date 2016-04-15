@@ -218,7 +218,7 @@
     bottomScrollView.contentSize = CGSizeMake(self.view.bounds.size.width * 2, self.view.bounds.size.height - navigationBarY);
     
     bottomScrollView.pagingEnabled = YES;
-    
+
     bottomScrollView.delegate = self;
     
     bottomScrollView.bounces = NO;

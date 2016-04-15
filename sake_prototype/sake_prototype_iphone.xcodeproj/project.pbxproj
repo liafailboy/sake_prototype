@@ -1026,6 +1026,7 @@
 				TargetAttributes = {
 					E21792C61C79002A0052D414 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = S976L82LQR;
 					};
 					E21792DF1C79002A0052D414 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1440,7 +1441,7 @@
 				INFOPLIST_FILE = sake_prototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liafailboy.sake-prototype";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liafailboy.sakeprototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1460,7 +1461,7 @@
 				INFOPLIST_FILE = sake_prototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.liafailboy.sake-prototype";
+				PRODUCT_BUNDLE_IDENTIFIER = com.liafailboy.sakeprototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
