@@ -411,6 +411,15 @@
     
     // add the pin to scrollview on top of the graph
     [scrollView addSubview:sakePinImageThirdPage];
+    
+    // set the initial personal sake meter, acidity based on actual sake meter, acidity
+    double personalSakeMeter = [[sakeDictionary objectForKey:@"SAKE_METER"] floatValue];
+    double personalSakeAcidity = [[sakeDictionary objectForKey:@"ACIDITY"] floatValue];
+    
+    
+    NSLog(@"%f, %f", personalSakeMeter, personalSakeAcidity);
+    
+    
 }
 
 # pragma amazon, rakuten button
