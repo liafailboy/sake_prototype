@@ -82,7 +82,7 @@
         backGroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"background_2.png"]];
     }
     
-    backImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
+    backGroundImage.frame = CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height - navigationBarY);
     [scrollView addSubview:backGroundImage];
 }
 
